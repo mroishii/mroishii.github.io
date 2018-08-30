@@ -26,7 +26,7 @@
   <AppDomains>
     <AppDomain>https://login.windows.net</AppDomain>
     <AppDomain>https://login.microsoftonline.com</AppDomain>
-    <AppDomain>AppDomain3</AppDomain>
+    <AppDomain>https://mroishii.github.io</AppDomain>
   </AppDomains>
   <!--End Basic Settings. -->
   
