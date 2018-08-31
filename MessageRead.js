@@ -8,17 +8,18 @@
             var token;
             //This to inform the Authenticator to automatically close the authentication dialog once the authentication is complete.
              if (OfficeHelpers.Authenticator.isAuthDialog()) {
+                //Before closing, parse token and store in localStorage
                 localStorage.setItem("Token", parseTokenFromUrl((String)(location.href)));
                 window.close();
              }
 
-             //If the URL contains token is not existed, do authentication protocol
+             //If token is not existed, do authentication protocol
              if (localStorage.getItem("Token") === null) {
                 $('#errormessage').text("Not authorized!");
                 doAuthorize();
              } else {
-                 //Parse token from the url
-                 var token = getItem("Token");
+                 //Get token from local storage
+                 var token = localStorage.getItem("Token");
                  //Log it
                  logIt("extracted token", token);
                  //Load Item Properties
@@ -34,7 +35,7 @@
         //Parameters for authenticator
         var client_id = '40f52d05-f5d8-4b29-9356-4248678802ba';
         var configs = {redirectUrl: 'https://mroishii.github.io/MessageRead.html',
-                       scope: "https://outlook.office.com/mail.readwrite"};
+                       scope: 'https://outlook.office.com/mail.readwrite'};
 
         // register Microsoft (Azure AD 2.0 Converged auth) endpoint using parameters)
         authenticator.endpoints.registerMicrosoftAuth(client_id, configs);
@@ -55,17 +56,18 @@
         );
     }
 
-    function getEWSToken() {
-        Office.context.mailbox.getCallbackTokenAsync({isRest: true}, function (result) {
-            if (result.status === "succeeded") {
-                logIt("Token", result.value);
-                return result.value;
-            } else {
-                logIt(result.error.name, result.error.message);
-                return null;
-            }
-        });
-    }
+    //outdated
+    // function getEWSToken() {
+    //     Office.context.mailbox.getCallbackTokenAsync({isRest: true}, function (result) {
+    //         if (result.status === "succeeded") {
+    //             logIt("Token", result.value);
+    //             return result.value;
+    //         } else {
+    //             logIt(result.error.name, result.error.message);
+    //             return null;
+    //         }
+    //     });
+    // }
 
     function getItemRestId() {
         var itemId;
