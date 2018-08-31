@@ -33,12 +33,19 @@
     <!-- link rel="stylesheet" href="Content/fabric.components.min.css" -->
 </head>
 <body class="ms-font-m ms-welcome">
-    <div class="ms-Fabric content-main">
-        <h2 id="errormessage" class="ms-font-xl"></h2>
+    <div class="ms-Fabric content-main">    
+        <center>
+            <img src="Images/logo.png" alt="akaminds-logo" style="width:90%;">
+            <h2 id="errormessage" class="ms-font-xl"></h2>
+            <button class="ms-Button ms-Button--hero" id="refresh">
+                    <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--refresh"></i></span> 
+                    <span class="ms-Button-label">Refresh</span> 
+            </button>
+        </center>
         <div id="htmlcontent"></div>
         <h1 class="ms-font-xxl">Translated</h1>
         <div id="translated"></div>
-        <table class="ms-Table ms-Table--selectable">
+        <!-- <table class="ms-Table ms-Table--selectable">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -46,11 +53,8 @@
                 </tr>
             </thead>
             <tbody class="prop-table" />
-        </table>
-        <button class="ms-Button ms-Button--hero" id="refresh">
-            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--refresh"></i></span> 
-            <span class="ms-Button-label">Refresh</span> 
-        </button>
+        </table> -->
+        
     </div>
 </body>
 </html>

@@ -17,7 +17,7 @@
   <ProviderName>Pham Tuan</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
-  <DisplayName DefaultValue="Akaminds Translate" />
+  <DisplayName DefaultValue="Akaminds" />
   <Description DefaultValue="Use Akaminds to translate email in Outlook 365"/>
   <IconUrl DefaultValue="https://mroishii.github.io/Images/Icon64.png"/>
 

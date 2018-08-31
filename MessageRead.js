@@ -16,13 +16,13 @@
 
              //If token is not existed, do authentication protocol
              if (localStorage.getItem("Token") === null) {
-                $('#errormessage').text("Not authorized!");
+                $('#errormessage').text("You are not authorized");
                 doAuthorize();
              } else {
                  //Get token from local storage
                  var token = localStorage.getItem("Token");
                  //Log it
-                 logIt("extracted token", token);
+                 //logIt("extracted token", token);
                  //Load Item Properties
                  loadItemProps(token);
              }
@@ -83,14 +83,13 @@
             Office.MailboxEnums.RestVersion.v2_0
           );
         }
-        logIt("Item ID", itemId);
+        //logIt("Item ID", itemId);
         return itemId;
     }
 
     function loadItemProps(accessToken) {
         // Get the table body element
-        var tbody = $('.prop-table');
-        var htmlcontent = $('#htmlcontent');
+        //var tbody = $('.prop-table');
 
         // Get the item's REST ID
         var itemId = getItemRestId();
@@ -101,8 +100,9 @@
         //var getMessageUrl = Office.context.mailbox.restUrl +
         //             '/v2.0/me/messages/' + itemId;
         var getMessageUrl = "https://graph.microsoft.com/v1.0/me/messages/" + itemId;
-            
-        logIt("url", getMessageUrl);
+        
+        //Log the getMessageUrl
+        //logIt("url", getMessageUrl);
 
         $.ajax({
             url: getMessageUrl,
@@ -110,14 +110,15 @@
             headers: { 'Authorization': 'Bearer ' + accessToken }
         }).done(function(item){
             // Message is passed in `item`
-            tbody.append(makeTableRow("item", Object.keys(item)));
-            tbody.append(makeTableRow("Subject", item.subject));
-            tbody.append(makeTableRow("ContentType", item.body.contentType));
-            $("#translated").html(translate(item.body.content));
+            // tbody.append(makeTableRow("item", Object.keys(item)));
+            // tbody.append(makeTableRow("Subject", item.subject));
+            // tbody.append(makeTableRow("ContentType", item.body.contentType));
+            translate(item.subject, "subject");
+            translate(item.body.content, "body");
         }).fail(function(error){
             // Handle error
-            $('#errormessage').text("Not authorized!");
-            logIt("Error", error.status);
+            $('#errormessage').text("You are not authorized or your session has expired.");
+            console.log("Error", error.status);
             doAuthorize();
         });
     }
@@ -134,8 +135,7 @@
         tbody.append(makeTableRow(name, value));
     }
 
-    function translate(source) {
-        var translated;
+    function translate(source, content) {
         $.ajax({
             url:'https://translation.googleapis.com/language/translate/v2',
             type:"post",
@@ -144,11 +144,13 @@
                    'target' : 'ja',
                    'key' : 'AIzaSyAYlBYQshvNVdRwBdCjXT6k8fqdxmoHnn0'},
             success: function(json) {
-                //$("#translated").html(json.data.translations[0].translatedText);
-                translated = json.data.translations[0].translatedText;
+                if (content === "subject") {
+                    $("#subject").html(json.data.translations[0].translatedText);
+                } else if (content === "body") {
+                    $("#translated").html(json.data.translations[0].translatedText);
+                }
             }
         });
-        return translated;
     }
 
     $("#logout").click(function () {
