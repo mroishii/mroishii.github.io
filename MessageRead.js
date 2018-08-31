@@ -34,8 +34,7 @@
                 
         //Parameters for authenticator
         var client_id = '40f52d05-f5d8-4b29-9356-4248678802ba';
-        var configs = {redirectUrl: 'https://mroishii.github.io/MessageRead.html',
-                       scope: 'https://outlook.office.com/mail.readwrite'};
+        var configs = {redirectUrl: 'https://mroishii.github.io/MessageRead.html'};
 
         // register Microsoft (Azure AD 2.0 Converged auth) endpoint using parameters)
         authenticator.endpoints.registerMicrosoftAuth(client_id, configs);
@@ -97,9 +96,9 @@
         // Construct the REST URL to the current item
         // Details for formatting the URL can be found at 
         // https://docs.microsoft.com/previous-versions/office/office-365-api/api/version-2.0/mail-rest-operations#get-a-message-rest
-        var getMessageUrl = Office.context.mailbox.restUrl +
-                     '/v2.0/me/messages/' + itemId;
-        //var getMessageUrl = "https://graph.microsoft.com/v1.0/me/messages/" + itemId;
+        //var getMessageUrl = Office.context.mailbox.restUrl +
+        //             '/v2.0/me/messages/' + itemId;
+        var getMessageUrl = "https://graph.microsoft.com/v1.0/me/messages/" + itemId;
             
         logIt("url", getMessageUrl);
 
