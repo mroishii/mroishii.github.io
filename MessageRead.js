@@ -36,7 +36,7 @@
         //Parameters for authenticator
         var client_id = '40f52d05-f5d8-4b29-9356-4248678802ba';
         var configs = {redirectUrl: 'https://mroishii.github.io/MessageRead.html',
-                       scope: 'https://graph.microsoft.com/mail.readwrite+https://graph.microsoft.com/user.read'};
+                       scope: 'https://graph.microsoft.com/mail.readwrite'};
 
         // register Microsoft (Azure AD 2.0 Converged auth) endpoint using parameters)
         authenticator.endpoints.registerMicrosoftAuth(client_id, configs);
