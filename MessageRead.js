@@ -113,7 +113,7 @@
             tbody.append(makeTableRow("item", Object.keys(item)));
             tbody.append(makeTableRow("Subject", item.subject));
             tbody.append(makeTableRow("ContentType", item.body.contentType));
-            translate(item.body.content);
+            $("#translated").html(translate(item.body.content));
         }).fail(function(error){
             // Handle error
             $('#errormessage').text("Not authorized!");
@@ -135,18 +135,20 @@
     }
 
     function translate(source) {
+        var translated;
         $.ajax({
             url:'https://translation.googleapis.com/language/translate/v2',
             type:"post",
             dataType:"json",
             data: {'q': source,
-                   'source' : 'en',
                    'target' : 'ja',
                    'key' : 'AIzaSyAYlBYQshvNVdRwBdCjXT6k8fqdxmoHnn0'},
             success: function(json) {
-                $("#translated").html(json.data.translations[0].translatedText);
+                //$("#translated").html(json.data.translations[0].translatedText);
+                translated = json.data.translations[0].translatedText;
             }
         });
+        return translated;
     }
 
     $("#logout").click(function () {
