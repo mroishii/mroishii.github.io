@@ -109,6 +109,7 @@
             headers: { 'Authorization': 'Bearer ' + accessToken }
         }).done(function(item){
             // Message is passed in `item`
+            tbody.append(makeTableRow("item", Object.keys(item)));
             tbody.append(makeTableRow("Subject", item.subject));
             tbody.append(makeTableRow("ContentType", item.body.contentType));
             translate(item.body.content);
