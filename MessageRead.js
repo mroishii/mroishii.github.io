@@ -10,7 +10,7 @@
              if (OfficeHelpers.Authenticator.isAuthDialog()) {
                 //Before closing, parse token and store in localStorage
                 localStorage.setItem("Token", parseTokenFromUrl((String)(location.href)));
-                window.close();
+                //window.close();
              }
 
              //If token is not existed, do authentication protocol
