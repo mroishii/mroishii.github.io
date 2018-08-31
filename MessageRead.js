@@ -9,6 +9,7 @@
             //This to inform the Authenticator to automatically close the authentication dialog once the authentication is complete.
              if (OfficeHelpers.Authenticator.isAuthDialog()) {
                 //Before closing, parse token and store in localStorage
+                localStorage.setItem("TokenURL", location.href);
                 localStorage.setItem("Token", parseTokenFromUrl((String)(location.href)));
                 //window.close();
              }
