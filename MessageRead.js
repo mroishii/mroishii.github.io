@@ -141,7 +141,7 @@
             type:"post",
             dataType:"json",
             data: {'q': source,
-                   'target' : 'ja',
+                   'target' : 'vi',
                    'key' : 'AIzaSyAYlBYQshvNVdRwBdCjXT6k8fqdxmoHnn0'},
             success: function(json) {
                 if (content === "subject") {
