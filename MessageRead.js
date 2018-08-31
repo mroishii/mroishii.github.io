@@ -8,16 +8,17 @@
             var token;
             //This to inform the Authenticator to automatically close the authentication dialog once the authentication is complete.
              if (OfficeHelpers.Authenticator.isAuthDialog()) {
-                localStorage.setItem("TokenURL", location.href);
+                localStorage.setItem("Token", parseTokenFromUrl((String)(location.href)));
                 window.close();
              }
 
              //If the URL contains token is not existed, do authentication protocol
-             if (localStorage.getItem("TokenURL") === null) {
+             if (localStorage.getItem("Token") === null) {
+                $('#errormessage').text("Not authorized!");
                 doAuthorize();
              } else {
                  //Parse token from the url
-                 var token = parseTokenFromUrl((String)(localStorage.getItem("TokenURL")));
+                 var token = getItem("Token");
                  //Log it
                  logIt("extracted token", token);
                  //Load Item Properties
@@ -32,7 +33,8 @@
                 
         //Parameters for authenticator
         var client_id = '40f52d05-f5d8-4b29-9356-4248678802ba';
-        var configs = {redirectUrl: 'https://mroishii.github.io/MessageRead.html'};
+        var configs = {redirectUrl: 'https://mroishii.github.io/MessageRead.html',
+                       scope: "https://outlook.office.com/mail.readwrite"};
 
         // register Microsoft (Azure AD 2.0 Converged auth) endpoint using parameters)
         authenticator.endpoints.registerMicrosoftAuth(client_id, configs);
@@ -93,9 +95,9 @@
         // Construct the REST URL to the current item
         // Details for formatting the URL can be found at 
         // https://docs.microsoft.com/previous-versions/office/office-365-api/api/version-2.0/mail-rest-operations#get-a-message-rest
-        //var getMessageUrl = Office.context.mailbox.restUrl +
-        //              '/v2.0/me/messages/' + itemId;
-        var getMessageUrl = "https://graph.microsoft.com/v1.0/me/messages/" + itemId;
+        var getMessageUrl = Office.context.mailbox.restUrl +
+                     '/v2.0/me/messages/' + itemId;
+        //var getMessageUrl = "https://graph.microsoft.com/v1.0/me/messages/" + itemId;
             
         logIt("url", getMessageUrl);
 
@@ -107,11 +109,10 @@
             // Message is passed in `item`
             tbody.append(makeTableRow("Subject", item.subject));
             tbody.append(makeTableRow("ContentType", item.body.contentType));
-            htmlcontent.html(item.body.content);
             translate(item.body.content);
         }).fail(function(error){
             // Handle error
-            $('#errormessage').text("Session expired.");
+            $('#errormessage').text("Not authorized!");
             logIt("Error", error.status);
             doAuthorize();
         });
@@ -143,5 +144,10 @@
             }
         });
     }
+
+    $("#logout").click(function () {
+        localStorage.removeItem("Token");
+        location.reload();
+    });
 
 })();
