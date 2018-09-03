@@ -1,15 +1,13 @@
 'use strict';
 
 (function () {
+    //Cookie-JS API
+    var ck = Cookies.noConflict();
 
     // The initialize function must be run each time a new page is loaded
     Office.initialize = function (reason) {
         $(document).ready(function () {
             var token;
-            
-            //Cookie-JS API
-            var ck = Cookies.noConflict();
-            
             //This to inform the Authenticator to automatically close the authentication dialog once the authentication is complete.
              if (OfficeHelpers.Authenticator.isAuthDialog()) {
                 //Before closing, parse token and store in localStorage (SAFARI UNSUPPORTED)
