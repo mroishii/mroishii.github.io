@@ -4,8 +4,6 @@
 
     // The initialize function must be run each time a new page is loaded
     Office.initialize = function (reason) {
-        //Cookie-JS API
-        var ck = Cookies.noConflict();
         var token;
         $(document).ready(function () {
             
@@ -19,12 +17,12 @@
              }
 
              //If token is not existed, do authentication protocol
-             if (ck.get('access_token') === undefined) {
+             if (Cookies.get('access_token') === undefined) {
                 $('#errormessage').text("You are not authorized or session is expired.");
                 doAuthorize();
              } else {
                  //Get token
-                 token = ck.get("access_token");
+                 token = Cookies.get("access_token");
                  //Log it
                  logIt("token", token);
                  //Load Item Properties
@@ -52,7 +50,7 @@
                 console.log(token);
                 $('#errormessage').text("Authorized");
                 var inThirtyMinutes = new Date(new Date().getTime() + 30 * 60 * 1000);
-                ck.set('access_token', (String)(token.accessToken), {expires : inThirtyMinutes});
+                Cookies.set('access_token', (String)(token.accessToken), {expires : inThirtyMinutes});
                 //location.reload();
             })
             .catch(OfficeHelpers.Utilities.log);
