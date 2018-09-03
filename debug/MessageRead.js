@@ -20,7 +20,7 @@
                 $('#errormessage').text("You are not authorized or session is expired.");
                 doAuthorize();
              } else {
-                 //Get token from local storage
+                 //Get token
                  var token = Cookies.get("access_token");
                  //Log it
                  logIt("token", token);
@@ -50,7 +50,7 @@
                 $('#errormessage').text("Authorized");
                 var inThirtyMinutes = new Date(new Date().getTime() + 30 * 60 * 1000);
                 Cookies.set('access_token', token.accessToken, {expires : inThirtyMinutes});
-                location.reload();
+                //location.reload();
             })
             .catch(OfficeHelpers.Utilities.log);
     }
