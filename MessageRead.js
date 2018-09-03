@@ -4,31 +4,30 @@
 
     // The initialize function must be run each time a new page is loaded
     Office.initialize = function (reason) {
+        var token;
         $(document).ready(function () {
-            var token;
+            
             //This to inform the Authenticator to automatically close the authentication dialog once the authentication is complete.
              if (OfficeHelpers.Authenticator.isAuthDialog()) {
-                //Before closing, parse token and store in localStorage
-                localStorage.setItem("TokenURL", location.href);
-                localStorage.setItem("Token", parseTokenFromUrl((String)(location.href)));
-                //window.close();
+                window.close();
              }
 
-             //If token is not existed, do authentication protocol
-             if (localStorage.getItem("Token") === null) {
-                $('#errormessage').text("You are not authorized");
+             //If token is not existed, do authentication stuff
+             if (Cookies.get('access_token') === undefined) {
+                $('#errormessage').text("You are not authorized or your session has expired.");
                 doAuthorize();
              } else {
-                 //Get token from local storage
-                 var token = localStorage.getItem("Token");
-                 //Log it
-                 //logIt("extracted token", token);
+                 //Get token
+                 token = Cookies.get("access_token");
+                 // // FOR LOG PURPOSE
+                 //logIt("token", token);
                  //Load Item Properties
                  loadItemProps(token);
              }
         });
     };
 
+    //Pop-up the Authorization Window and do Authorization stuff
     function doAuthorize() {
         //Create new authenticator
         var authenticator = new OfficeHelpers.Authenticator();
@@ -46,30 +45,15 @@
             .authenticate(OfficeHelpers.DefaultEndpoints.Microsoft)
             .then(function (token) { /* Microsoft Token */ 
                 console.log(token);
+                $('#errormessage').text("Authorized");
+                var inThirtyMinutes = new Date(new Date().getTime() + 30 * 60 * 1000);
+                Cookies.set('access_token', (String)(token.access_token), {expires : inThirtyMinutes});
+                location.reload();
             })
             .catch(OfficeHelpers.Utilities.log);
     }
 
-    function parseTokenFromUrl (url) {
-        return url.substring(
-            url.search("access_token") + 13,
-            url.search("token_type") - 1
-        );
-    }
-
-    //outdated
-    // function getEWSToken() {
-    //     Office.context.mailbox.getCallbackTokenAsync({isRest: true}, function (result) {
-    //         if (result.status === "succeeded") {
-    //             logIt("Token", result.value);
-    //             return result.value;
-    //         } else {
-    //             logIt(result.error.name, result.error.message);
-    //             return null;
-    //         }
-    //     });
-    // }
-
+    //Get Current Item ID in REST formatted
     function getItemRestId() {
         var itemId;
         if (Office.context.mailbox.diagnostics.hostName === 'OutlookIOS') {
@@ -87,62 +71,61 @@
         return itemId;
     }
 
+    //Load and Show Mail Item Properties
     function loadItemProps(accessToken) {
-        // Get the table body element
+        // Get the table body element. For log purpose only
         //var tbody = $('.prop-table');
 
         // Get the item's REST ID
         var itemId = getItemRestId();
 
+        //---------DO NOT USE THIS-------------------------------------------------
         // Construct the REST URL to the current item
         // Details for formatting the URL can be found at 
         // https://docs.microsoft.com/previous-versions/office/office-365-api/api/version-2.0/mail-rest-operations#get-a-message-rest
         //var getMessageUrl = Office.context.mailbox.restUrl +
         //             '/v2.0/me/messages/' + itemId;
-        var getMessageUrl = "https://graph.microsoft.com/v1.0/me/messages/" + itemId;
+        //--------NOT WORKING--------------------------------------------------------
         
-        //Log the getMessageUrl
-        //logIt("url", getMessageUrl);
-
+        //The URL use to get Mail Item
+        var getMessageUrl = "https://graph.microsoft.com/v1.0/me/messages/" + itemId;
+        //Call API to get Mail Item
         $.ajax({
             url: getMessageUrl,
             dataType: 'json',
             headers: { 'Authorization': 'Bearer ' + accessToken }
         }).done(function(item){
             // Message is passed in `item`
-            // tbody.append(makeTableRow("item", Object.keys(item)));
-            // tbody.append(makeTableRow("Subject", item.subject));
-            // tbody.append(makeTableRow("ContentType", item.body.contentType));
+
+            //----------FOR LOG PURPOSE ONLY--------------------------------------
+            //tbody.append(makeTableRow("Subject", item.subject));
+            //tbody.append(makeTableRow("ContentType", item.body.contentType));
+            //--------------------------------------------------------------------
+
+            //Translate and show Subject
             translate(item.subject, "subject");
+            //Translate and show Mail body
             translate(item.body.content, "body");
         }).fail(function(error){
-            // Handle error
+            // Show error message then request authorization again
             $('#errormessage').text("You are not authorized or your session has expired.");
             console.log("Error", error.status);
             doAuthorize();
         });
     }
 
-    function makeTableRow(name, value) {
-        return $("<tr><td><strong>" + name +
-            "</strong></td><td class=\"prop-val\"><code>" +
-            value + "</code></td></tr>");
-    }
-
-    function logIt(name, value) {
-        // Get the table body element
-        var tbody = $('.prop-table');
-        tbody.append(makeTableRow(name, value));
-    }
-
+    //Call Translation API to get translated result
     function translate(source, content) {
+        //Google API Key. Replace this with another valid key.
+        var GOOGLE_API_KEY = 'AIzaSyAYlBYQshvNVdRwBdCjXT6k8fqdxmoHnn0';
+       
         $.ajax({
             url:'https://translation.googleapis.com/language/translate/v2',
             type:"post",
             dataType:"json",
             data: {'q': source,
                    'target' : 'vi',
-                   'key' : 'AIzaSyAYlBYQshvNVdRwBdCjXT6k8fqdxmoHnn0'},
+                   'key' : GOOGLE_API_KEY},
             success: function(json) {
                 if (content === "subject") {
                     $("#subject").html(json.data.translations[0].translatedText);
@@ -152,10 +135,33 @@
             }
         });
     }
+    // //THIS SECTION IS FOR LOG PURPOSE ONLY
+    // function makeTableRow(name, value) {
+    //     return $("<tr><td><strong>" + name +
+    //         "</strong></td><td class=\"prop-val\"><code>" +
+    //         value + "</code></td></tr>");
+    // }
 
-    $("#logout").click(function () {
-        localStorage.removeItem("Token");
-        location.reload();
-    });
+    // function logIt(name, value) {
+    //     // Get the table body element
+    //     var tbody = $('.prop-table');
+    //     tbody.append(makeTableRow(name, value));
+    // }
 
+    
+    // // THIS WILL NOT WORKED
+    // function getEWSToken() {
+    //     Office.context.mailbox.getCallbackTokenAsync({isRest: true}, function (result) {
+    //         if (result.status === "succeeded") {
+    //             logIt("Token", result.value);
+    //             return result.value;
+    //         } else {
+    //             logIt(result.error.name, result.error.message);
+    //             return null;
+    //         }
+    //     });
+    // }
+
+
+    
 })();
