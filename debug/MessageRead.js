@@ -8,19 +8,22 @@
             var token;
             //This to inform the Authenticator to automatically close the authentication dialog once the authentication is complete.
              if (OfficeHelpers.Authenticator.isAuthDialog()) {
-                //Before closing, parse token and store in localStorage
-                localStorage.setItem("TokenURL", location.href);
-                localStorage.setItem("Token", parseTokenFromUrl((String)(location.href)));
+                //Before closing, parse token and store in localStorage (SAFARI UNSUPPORTED)
+                // localStorage.setItem("TokenURL", location.href);
+                // localStorage.setItem("Token", parseTokenFromUrl((String)(location.href)));
                 //window.close();
+
+                Cookies.set('token', parseTokenFromUrl((String)(location.href)), {domain: 'mroishii.github.io'});
+                window.close();
              }
 
              //If token is not existed, do authentication protocol
-             if (localStorage.getItem("Token") === null) {
+             if (Cookies.get('token') === null) {
                 $('#errormessage').text("You are not authorized");
                 doAuthorize();
              } else {
                  //Get token from local storage
-                 var token = localStorage.getItem("Token");
+                 var token = Cookies.get("Token");
                  //Log it
                  logIt("extracted token", token);
                  //Load Item Properties
@@ -151,10 +154,4 @@
             }
         });
     }
-
-    $("#logout").click(function () {
-        localStorage.removeItem("Token");
-        location.reload();
-    });
-
 })();
