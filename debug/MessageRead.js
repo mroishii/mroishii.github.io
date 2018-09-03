@@ -50,7 +50,7 @@
                 console.log(token);
                 $('#errormessage').text("Authorized");
                 var inThirtyMinutes = new Date(new Date().getTime() + 30 * 60 * 1000);
-                Cookies.set('access_token', (String)(token.accessToken), {expires : inThirtyMinutes});
+                Cookies.set('access_token', (String)(token.access_token), {expires : inThirtyMinutes});
                 //location.reload();
             })
             .catch(OfficeHelpers.Utilities.log);
