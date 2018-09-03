@@ -18,7 +18,7 @@
 
              //If token is not existed, do authentication protocol
              if (Cookies.get('access_token') === undefined) {
-                $('#errormessage').text("You are not authorized or session is expired.");
+                $('#errormessage').text("You are not authorized or your session has expired.");
                 doAuthorize();
              } else {
                  //Get token
@@ -51,7 +51,7 @@
                 $('#errormessage').text("Authorized");
                 var inThirtyMinutes = new Date(new Date().getTime() + 30 * 60 * 1000);
                 Cookies.set('access_token', (String)(token.access_token), {expires : inThirtyMinutes});
-                //location.reload();
+                location.reload();
             })
             .catch(OfficeHelpers.Utilities.log);
     }
