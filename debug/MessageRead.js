@@ -6,6 +6,10 @@
     Office.initialize = function (reason) {
         $(document).ready(function () {
             var token;
+            
+            //Cookie-JS API
+            var ck = Cookies.noConflict();
+            
             //This to inform the Authenticator to automatically close the authentication dialog once the authentication is complete.
              if (OfficeHelpers.Authenticator.isAuthDialog()) {
                 //Before closing, parse token and store in localStorage (SAFARI UNSUPPORTED)
@@ -16,12 +20,12 @@
              }
 
              //If token is not existed, do authentication protocol
-             if (Cookies.get('access_token') === null) {
+             if (ck.get('access_token') === undefined) {
                 $('#errormessage').text("You are not authorized or session is expired.");
                 doAuthorize();
              } else {
                  //Get token
-                 var token = Cookies.get("access_token");
+                 var token = ck.get("access_token");
                  //Log it
                  logIt("token", token);
                  //Load Item Properties
@@ -49,7 +53,7 @@
                 console.log(token);
                 $('#errormessage').text("Authorized");
                 var inThirtyMinutes = new Date(new Date().getTime() + 30 * 60 * 1000);
-                Cookies.set('access_token', token.accessToken, {expires : inThirtyMinutes});
+                ck.set('access_token', (String)(token.accessToken), {expires : inThirtyMinutes});
                 //location.reload();
             })
             .catch(OfficeHelpers.Utilities.log);
