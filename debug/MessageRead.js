@@ -12,20 +12,18 @@
                 // localStorage.setItem("TokenURL", location.href);
                 // localStorage.setItem("Token", parseTokenFromUrl((String)(location.href)));
                 //window.close();
-
-                Cookies.set('token', parseTokenFromUrl((String)(location.href)), {domain: 'mroishii.github.io'});
                 window.close();
              }
 
              //If token is not existed, do authentication protocol
-             if (Cookies.get('token') === null) {
-                $('#errormessage').text("You are not authorized");
+             if (Cookies.get('access_token') === null) {
+                $('#errormessage').text("You are not authorized or session is expired.");
                 doAuthorize();
              } else {
                  //Get token from local storage
-                 var token = Cookies.get("Token");
+                 var token = Cookies.get("access_token");
                  //Log it
-                 logIt("extracted token", token);
+                 logIt("token", token);
                  //Load Item Properties
                  loadItemProps(token);
              }
@@ -49,6 +47,10 @@
             .authenticate(OfficeHelpers.DefaultEndpoints.Microsoft)
             .then(function (token) { /* Microsoft Token */ 
                 console.log(token);
+                $('#errormessage').text("Authorized");
+                var inThirtyMinutes = new Date(new Date().getTime() + 30 * 60 * 1000);
+                Cookies.set('access_token', token.accessToken, {expires : inThirtyMinutes});
+                location.reload();
             })
             .catch(OfficeHelpers.Utilities.log);
     }
