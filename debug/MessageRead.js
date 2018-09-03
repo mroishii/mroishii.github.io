@@ -1,13 +1,14 @@
 'use strict';
 
 (function () {
-    //Cookie-JS API
-    var ck = Cookies.noConflict();
 
     // The initialize function must be run each time a new page is loaded
     Office.initialize = function (reason) {
+        //Cookie-JS API
+        var ck = Cookies.noConflict();
+        var token;
         $(document).ready(function () {
-            var token;
+            
             //This to inform the Authenticator to automatically close the authentication dialog once the authentication is complete.
              if (OfficeHelpers.Authenticator.isAuthDialog()) {
                 //Before closing, parse token and store in localStorage (SAFARI UNSUPPORTED)
@@ -23,7 +24,7 @@
                 doAuthorize();
              } else {
                  //Get token
-                 var token = ck.get("access_token");
+                 token = ck.get("access_token");
                  //Log it
                  logIt("token", token);
                  //Load Item Properties
