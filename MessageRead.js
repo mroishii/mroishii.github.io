@@ -33,7 +33,7 @@
         var authenticator = new OfficeHelpers.Authenticator();
                 
         //Parameters for authenticator
-        var client_id = '40f52d05-f5d8-4b29-9356-4248678802ba';
+        var client_id = '40f52d05-f5d8-4b29-9356-4248678802ba'; //Replace with another valid application id after register app with microsoft portal
         var configs = {redirectUrl: 'https://mroishii.github.io/MessageRead.html',
                        scope: 'https://graph.microsoft.com/mail.readwrite'};
 
@@ -44,7 +44,7 @@
         authenticator
             .authenticate(OfficeHelpers.DefaultEndpoints.Microsoft)
             .then(function (token) { /* Microsoft Token */ 
-                console.log(token);
+                //console.log(token);
                 $('#errormessage').text("Authorized");
                 var inThirtyMinutes = new Date(new Date().getTime() + 30 * 60 * 1000);
                 Cookies.set('access_token', (String)(token.access_token), {expires : inThirtyMinutes});
