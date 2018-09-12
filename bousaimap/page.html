@@ -3,124 +3,53 @@
 	sk3a 12 Pham Huy Tuan
 -->
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8" />
-<title>Kadai12</title>
-<!--　GoogleのCDNからjQueryを読み込む　-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyAanrR7zbT3OokdXNJGblqdVhXlbpprNpo&libraries=places" type="text/javascript" charset="UTF-8"></script>
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" ></script>
-<style type="text/css">
-  html,body { height: 100%}
-  #map {height: 100%; margin: 10px; padding: 10px}
-  .container {height: 800px}
-</style>
+    <meta charset="UTF-8" />
+    <title>防災時マップ</title>
+    <!--　GoogleのCDNからjQueryを読み込む　-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
-<script type="text/javascript">
-  $(function(){
-    var map;
-    var geo;
-    
+    <!-- Google Maps API-->
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyAanrR7zbT3OokdXNJGblqdVhXlbpprNpo&libraries=places" type="text/javascript"
+        charset="UTF-8"></script>
 
-    var latlng = new google.maps.LatLng(35.6853735, 139.7530913);
-    var opts = {
-      zoom: 7,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      center: latlng
-    };
-    map = new google.maps.Map($("#map").get(0), opts);
-    geo = new google.maps.Geocoder()
+    <!-- Local script -->
+    <script src="mapprocess.js"></script>
+    <script src="actionhandler.js"></script>
 
-    $("#btn").click(function() {
-        // var zipcode = $("#post1").val() + $("#post2").val();
-        // console.log(zipcode);
-        // $.ajax({
-        //     url:'http://api.zipaddress.net?callback=?',
-        //     type:"get",
-        //     dataType:"json",
-        //     data: {'zipcode': zipcode},
-        //     success: function(json) {
-        //         geo = new google.maps.Geocoder();
-        //         var req = {
-        //             address: json.fullAddress,
-        //         };
-        //         geo.geocode(req, geoResultCallBack)
-        //     }
-        // })
-        initService();
-    });
+    <!-- Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    </script>
+    <link rel="stylesheet" type="text/css" href="page.css">
 
-    function geoResultCallBack(results, status) {
-        if (status != google.maps.GeocoderStatus.OK) {
-            alert(status);
-            return;
-        }
-        var latlng = results[0].geometry.location;
-        map.setCenter(latlng);
-        new google.maps.Marker({position : latlng, 
-                                map : map, 
-                                zoom : 15 });
-    }
-
-    function initService() {
-        var displaySuggestions = function(predictions, status) {
-        if (status != google.maps.places.PlacesServiceStatus.OK) {
-            alert(status);
-            return;
-        }
-
-        predictions.forEach(function(prediction) {
-            console.log(Object.keys(prediction));
-
-            var line;
-            line = '<tr class="location_item" id="'+ prediction.place_id+'"><td>';
-            line += prediction.description;
-            line += '</td></tr>';
-            $('#location_list').append(line);
+    <script type="text/javascript">
+        $(function () {
+            initMap();
+            initService();
         });
-    };
-
-        
-
-    // Create a new session token.
-    var sessionToken = new google.maps.places.AutocompleteSessionToken();
-
-    // Pass the token to the autocomplete service.
-    var autocompleteService = new google.maps.places.AutocompleteService();
-    autocompleteService.getPlacePredictions({
-                                input: '避難所',
-                                sessionToken: sessionToken
-                            },
-        displaySuggestions);    
-    }
-
-    $('#location_list').on('click', '.location_item', function() {
-        alert($(this).attr('id'));
-        geo.geocode({placeId : $(this).attr('id')}, geoResultCallBack);
-    });
-  });
-</script>
+    </script>
 </head>
 
 <body>
-  <p>
-    郵便番号：<input type=text id="post1"/>-<input type="text" id="post2"/>
-    <input type="button" id="btn" value="マーカを表示"/>
-  </p>
-  <table border="1">
-    <tr>
-      <td class="container" width="20%">
-          <table id="location_list" border="0">
-              <!-- List of locations appears here-->
-          </table>
-      </td>
-      <td class="container" id="map" width="800px"></td>
-        
-      </td>
-    </tr>
-    
-  </table>
-  
+    <table border="0">
+        <tr>
+            <td id="current_location">
+                <button id="getCurrent">現在の位置</button>
+            <td class="container" id="map" width="800px" rowspan="2"></td>
+            </td>
+        </tr>
+        <tr>
+            <td class="container" width="20%">
+                <table id="location_list" border="0">
+                    <!-- List of locations appears here-->
+                </table>
+            </td>
+
+        </tr>
+
+    </table>
+
 
 </body>
 
