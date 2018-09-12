@@ -1,17 +1,18 @@
 html,body { 
-    height: 100%
+    background-color: bisque;
+    height: 100%;
 }
 
 #map {
-    height: 100%; margin: 10px; padding: 10px
+    height: 100%; margin: 10px; padding: 10px;
 }
 
 .container {
-    height: 500px
+    height: 500px;
 }
 
 #location_list {vertical-align: top}
-#location_list .location_item {color: black ;background-color: White; transition: 0.3s}  
+#location_list .location_item {color: black ; transition: 0.3s}  
 #location_list .location_item:hover{color: white ;background-color: black}
 
 #getCurrent {
@@ -23,4 +24,8 @@ html,body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+h1 {
+
 }

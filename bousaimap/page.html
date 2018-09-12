@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>防災時マップ</title>
+    <title>防災マップ</title>
     <!--　GoogleのCDNからjQueryを読み込む　-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
@@ -32,16 +32,20 @@
 </head>
 
 <body>
-    <table border="0">
+    <center>
+        <h1>防災マップ</h1>
+    </center>
+    
+    <table>
         <tr>
             <td id="current_location">
                 <button id="getCurrent">現在の位置</button>
-            <td class="container" id="map" width="800px" rowspan="2"></td>
+            <td class="container" id="map" width="800px" rowspan="2" border="1"></td>
             </td>
         </tr>
         <tr>
             <td class="container" width="20%">
-                <table id="location_list" border="0">
+                <table id="location_list">
                     <!-- List of locations appears here-->
                 </table>
             </td>
