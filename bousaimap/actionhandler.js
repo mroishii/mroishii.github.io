@@ -1,19 +1,27 @@
 $(function () {
-    $("#getCurrent").click(function() {
+    $("#getCurrent").click(function () {
         map.setCenter(currentLocation);
+        map.setZoom(18);
     });
 
     // Go to location when click on location_item
-    $('#location_list').on('click', '.location_item', function() {
-        geo.geocode({placeId : $(this).attr('id')}, 
-                    function (results, status) {
-                        if (status != google.maps.GeocoderStatus.OK) {
-                            alert(status);
-                            return;
-                        }
-                        var latlng = results[0].geometry.location;
-                        map.setCenter(latlng);
-        });
+    $('#location_list').on('click', '.location_item', function () {
+        var latlng = parseLatLng($(this).attr('coordinate'));
+        selectedLocation = latlng;
+        map.setCenter(selectedLocation);
+        map.setZoom(18);
     });
-    
+
+    $('#direction').click(function () {
+        if (selectedLocation == null) {
+            alert("場所を選択してください");
+            return;
+        }
+        calcRoute();
+    })
+
+    $('#type').change(function () {
+        getLocationsFromYahoo($(this).val());
+    })
+
 })

@@ -26,7 +26,6 @@
     <script type="text/javascript">
         $(function () {
             initMap();
-            initService();
         });
     </script>
 </head>
@@ -40,6 +39,18 @@
         <tr>
             <td id="current_location">
                 <button id="getCurrent">現在の位置</button>
+                <hr>
+                場所を探す
+                <select id="type">
+                    <option value="避難所" selected>避難所</option>
+                    <option value="病院">病院</option>
+                    <option value="交番">交番</option>
+                </select>
+                <hr>
+                場所を選択してから「GO」ボタンをクリックしてください。<br>
+                <button id="direction">GO!</button>
+                
+                
             <td class="container" id="map" width="800px" rowspan="2" border="1"></td>
             </td>
         </tr>
