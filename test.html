@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title></title>
+    <!-- JQuery Script -->
+    <script src="Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+
+    <script>
+        $(function () {
+            function amtLogin() {
+                var user = 'trongtv_api';
+                var password = 'Fsoft@amt123#';
+                var url = 'https://amt.akaminds.co.jp/login';
+                $.ajax({
+                    url: url,
+                    type: 'post',
+                    dataType: 'json',
+                    headers: { 'Content-Type': 'application/json' },
+                    data: {
+                        username: user,
+                        password: password,
+                    },
+                    success: function (data) {
+                        console.log(data);
+                    }
+                })
+            }
+
+            $('#login').click(function () {
+                amtLogin();
+            })
+        }) 
+    </script>
+
+</head>
+
+<body>
+    <input type='button' id='login' value='Log in'>
+</body>

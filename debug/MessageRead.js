@@ -157,4 +157,23 @@
             }
         });
     }
+
+    function amtLogin () {
+        var user = 'trongtv_api';
+        var password = 'Fsoft@amt123#';
+        var url = 'https://amt.akaminds.co.jp/login';
+        $.ajax({
+            url: url,
+            type: 'post',
+            dataType: 'json',
+            headers: {'Content-Type': 'application/json'},
+            data: {
+                username: user,
+                password: password
+            },
+            success: function(result) {
+                console.log(result);
+            }
+        })
+    }
 })();
