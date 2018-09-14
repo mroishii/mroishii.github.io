@@ -14,11 +14,14 @@
                 var user = 'trongtv_api';
                 var password = 'Fsoft@amt123#';
                 var url = 'https://amt.akaminds.co.jp/login';
+                
                 $.ajax({
                     url: url,
-                    type: 'post',
-                    dataType: 'json',
-                    headers: { 'Content-Type': 'application/json' },
+                    type: 'get',
+                    contentType: 'text/plain',
+                    xhrFields: {
+                        withCredentials: false
+                    },
                     data: {
                         username: user,
                         password: password,
