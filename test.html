@@ -13,22 +13,36 @@
             function amtLogin() {
                 var user = 'trongtv_api';
                 var password = 'Fsoft@amt123#';
-                var url = 'https://amt.akaminds.co.jp/login';
-                
+                var url = 'https://amtapi.akaminds.co.jp/login';
+
                 $.ajax({
                     url: url,
                     type: 'post',
-                    contentType: 'application/json',
-                    xhrFields: {
-                        withCredentials: false
-                    },
-                    data: {
-                        username: user,
-                        password: password,
-                    },
-                    success: function (data) {
-                        console.log(data);
-                    }
+                    headers: {'Content-Type': 'application/json'},
+                    data: '{"username":"'+ user +'","password":"'+ password +'"}'
+                }).done(function(response) {
+                    amtTranslate(response.token);
+                }).fail(function(error) {
+                    console.log("failed");
+                    console.log(error.responseText);
+                })
+            }
+
+            function amtTranslate(token) {
+                console.log(token);
+                var url = "https://amtapi.akaminds.co.jp/api/translate/sentence";
+                $.ajax({
+                    url: url,
+                    type: 'post',
+                    headers: {'content-type': 'application/json',
+                              'authorization': 'Bearer ' + token,
+                              'token-type': 'AMT'},
+                    data: '{"jpn":"おはようございます"}'
+                }).done(function(data) {
+                    console.log(data);
+                }).fail(function(error) {
+                    console.log("failed");
+                    console.log(error.responseText);
                 })
             }
 
