@@ -34,15 +34,9 @@
                 $.ajax({
                     url: url,
                     type: 'post',
-<<<<<<< HEAD
                     headers: {'content-type': 'application/json',
                               'authorization': 'Bearer ' + token,
                               'token-type': 'AMT'},
-=======
-                    headers: {'Content-Type': 'application/json',
-                              'Authorization': token,
-                              'Token-Type': 'AMT'},
->>>>>>> 795ae23e0c8ab2944c8e09f43db934c984a4f5e4
                     data: '{"jpn":"おはようございます"}'
                 }).done(function(data) {
                     console.log(data);
