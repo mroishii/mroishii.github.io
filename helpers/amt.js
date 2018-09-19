@@ -21,7 +21,7 @@ function amtTranslate(source, content) {
     var amtToken;
     if (Cookies.get('amtToken') !== undefined) {
         amtToken = Cookies.get('amtToken');
-        Console.log("Logged in. Token: " + amtToken);
+        console.log("Logged in. Token: " + amtToken);
     }
     
     $.ajax({
