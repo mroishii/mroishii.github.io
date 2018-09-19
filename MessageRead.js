@@ -12,6 +12,12 @@
                 window.close();
              }
 
+
+             //If not logged in to amt, do log in
+             if (Cookies.get('amtToken') === undefined) {
+                 amtLogin();
+             } 
+
              //If token is not existed, do authentication stuff
              if (Cookies.get('access_token') === undefined) {
                 $('#errormessage').text("You are not authorized or your session has expired.");
@@ -103,9 +109,11 @@
             //--------------------------------------------------------------------
 
             //Translate and show Subject
-            translate(item.subject, "subject");
+            //translate(item.subject, "subject");
+            amtTranslate(item.subject, "subject");
             //Translate and show Mail body
-            translate(item.body.content, "body");
+            //translate(item.body.content, "body");
+            amttranslate(item.body.content, "body");
         }).fail(function(error){
             // Show error message then request authorization again
             $('#errormessage').text("You are not authorized or your session has expired.");
