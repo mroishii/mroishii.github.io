@@ -113,7 +113,7 @@
             amtTranslate(item.subject, "subject");
             //Translate and show Mail body
             //translate(item.body.content, "body");
-            amttranslate(item.body.content, "body");
+            amtTranslate(item.body.content, "body");
         }).fail(function(error){
             // Show error message then request authorization again
             $('#errormessage').text("You are not authorized or your session has expired.");
