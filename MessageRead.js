@@ -113,6 +113,7 @@
             amtTranslate(item.subject, "subject");
             //Translate and show Mail body
             //translate(item.body.content, "body");
+            console.log(item.body.content);
             amtTranslate(item.body.content, "body");
         }).fail(function(error){
             // Show error message then request authorization again
