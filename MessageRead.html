@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -25,7 +26,10 @@
 
     <!-- AMT helpers -->
     <script src="helpers/amt.js"></script>
-    
+
+    <!-- HTML Parser -->
+    <script src="node_modules/htmlparser/lib/htmlparser.js"></script>
+
     <!-- <script src="https://unpkg.com/@microsoft/office-js-helpers@0.8.0-beta.4/dist/office.helpers.min.js"></script> -->
     <script src="Scripts/FabricUI/MessageBanner.js" type="text/javascript"></script>
 
@@ -43,14 +47,15 @@
     <!-- link rel="stylesheet" href="Content/fabric.min.css" -->
     <!-- link rel="stylesheet" href="Content/fabric.components.min.css" -->
 </head>
+
 <body class="ms-font-m ms-welcome">
-    <div class="ms-Fabric content-main">    
+    <div class="ms-Fabric content-main">
         <center>
             <img class="sticky" src="../Images/logo.png" alt="akaminds-logo" style="width:90%;">
             <h2 id="errormessage" class="ms-font-xl"></h2>
             <button class="ms-Button ms-Button--hero" id="refresh">
-                    <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--refresh"></i></span> 
-                    <span class="ms-Button-label">Refresh</span> 
+                <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--refresh"></i></span>
+                <span class="ms-Button-label">Refresh</span>
             </button>
         </center>
         <!-- THIS TABLE IS FOR LOG PURPOSE ONLY
@@ -70,8 +75,9 @@
         <div id="subject"></div>
         <hr>
         <div id="translated"></div>
-        
-        
+
+
     </div>
 </body>
+
 </html>

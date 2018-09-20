@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="text/html; charset=iso-8859-1">
+    <style type="text/css">
+        /* a:hover {
+            color: #0088cc;
+            text-decoration: underline !important
+        }
+
+        a:active {
+            color: #0088cc !important
+        }
+
+        a:visited {
+            color: #0088cc !important
+        } */
+    </style>
+    <!-- JQuery Script -->
+    <script src="../Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+
+    <!-- HTML Parser -->
+    <script src="../node_modules/htmlparser/lib/htmlparser.js"></script>
+
+    <script>
+        $(function () {
+            function parseHtml() {
+                var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
+                    if (error) {
+                        //[...do something for errors...]
+                    } else {
+                        //[...parsing done, do something...]
+                    }
+                });
+                var parser = new Tautologistics.NodeHtmlParser.Parser(handler);
+                parser.parseComplete(document.body.innerHTML);
+                console.log((JSON.stringify(handler.dom, null, 2)));
+            }
+
+            $("#doIt").click(function () {
+                doIt();
+            })
+        }) 
+    </script>
+</head>
+
+<body style="width:100%!important; color:#333333; display:block; text-align:left; line-height:1.6em; font-size:16px; margin:0 auto; padding:0; font-weight:300">
+    <table class="body" style="border-spacing:0; border-collapse:collapse; vertical-align:top; text-align:left; height:100%; width:100%; padding:0">
+        <tbody>
+            <tr align="left" style="vertical-align:top; text-align:left; padding:0">
+                <td class="center" align="center" valign="top" style="border-collapse:collapse!important; vertical-align:top; text-align:center; padding:0">
+                    <center style="width:100%">
+                        <table class="container" style="border-spacing:0; border-collapse:collapse; vertical-align:top; width:600px; margin:0 auto; padding:0">
+                            <tbody>
+                                <tr align="left" style="vertical-align:top; padding:0">
+                                    <td align="left" valign="top" style="border-collapse:collapse; vertical-align:top; padding:0">
+                                        <table class="header" style="border-spacing:0; vertical-align:top; text-align:inherit; width:100%; padding:12px 0 9px; margin:0; border-bottom:1px solid #e9e9e9">
+                                            <tbody>
+                                                <tr align="left" style="vertical-align:top; text-align:left; padding:0">
+                                                    <td id="logo" width="131" height="27" align="left" valign="top"><a
+                                                            href="https://developer.apple.com/"><img src="https://developer.apple.com/click/images/apple-developer-logo.png"
+                                                                width="131" height="27" alt="" border="0" align="left"></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="content" style="border-spacing:0; vertical-align:top; text-align:inherit; width:100%; padding:44px 0; margin:0; border-bottom:1px solid #e9e9e9">
+                                            <tbody>
+                                                <tr align="left" style="vertical-align:top; text-align:left; padding:0">
+                                                    <td align="left" valign="top" style="border-collapse:collapse!important; vertical-align:top; text-align:left; padding:0">
+                                                        <p style="color:#333333; margin:0; padding:0; font-weight:300; line-height:1.6em; font-size:16px">
+                                                            Dear Storm Leeon, <br>
+                                                            <br>
+                                                            You have not yet purchased your Apple Developer Program. If
+                                                            you do not <a href="https://developer.apple.com/enroll/"
+                                                                class="aapl-link" style="color:#0088cc; text-decoration:none">
+                                                                purchase</a> your program within the next seven (7)
+                                                            days, we will assume you are no longer interested in
+                                                            continuing your enrollment and will withdraw your request.
+                                                            <br>
+                                                            <br>
+                                                            Should you wish to join the Apple Developer Program after
+                                                            your enrollment has been withdrawn, please
+                                                            <a href="https://developer.apple.com/contact/submit/" class="aapl-link"
+                                                                style="color:#0088cc; text-decoration:none">
+                                                                contact us</a> and reference your enrollment ID
+                                                            FJ24UY6G4J. <br>
+                                                            <br>
+                                                            Best regards,<br>
+                                                            Apple Developer Program Support </p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="footer" style="border-spacing:0; border-collapse:collapse; vertical-align:top; width:100%; margin:25px 0 10px; padding:0">
+                                            <tbody>
+                                                <tr align="left" style="vertical-align:top; text-align:left; padding:0">
+                                                    <td align="left" valign="top" style="border-collapse:collapse; vertical-align:top; padding:0">
+                                                        <p class="left-align-mobile" style="color:#999999; line-height:1.6em; margin:0; padding:0; font-size:9px; font-weight:300">
+                                                            TM and © 2018 Apple Inc. <br>
+                                                            One Apple Park Way, MS 301-1TEV, Cupertino, CA 95014.<br>
+                                                            <a href="http://www.apple.com/legal/" style="color:#999999; text-decoration:none">All
+                                                                Rights Reserved</a> /
+                                                            <a href="http://www.apple.com/legal/privacy/" style="color:#999999; text-decoration:none">
+                                                                Privacy Policy</a> / <a href="https://developer.apple.com/account/"
+                                                                style="color:#999999; text-decoration:none">
+                                                                Account</a> / <a href="https://developer.apple.com/support/"
+                                                                style="color:#999999; text-decoration:none">
+                                                                Support</a> </p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </center>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <img src="http://outsideapple.apple.com/img/APPLE_EMAIL_LINK/spacer4.gif?v=2&amp;a=%2FreOOAuRz3hYhvues6ZpFSL6u9uSreWoCAb2lR6%2BfJRIUZNdkxlyJLn4BGgNXpxuQovxYQzRYCHaxI%2Btk434o8QLSvKbH1BG7REL2g%2FDX%2B1UUHGj9vTywcvCxUR9OItK0Tx4mOn%2BmCSVOUcJuCO7P7wJ2WRgp%2BqLfgzPq8Fhh%2FSca1A7Z%2FLonuCxJ00pIdK8IooDyOMzTMyusndlNX5lFbITAha3sl3WicFR6F7Yh4UxHmHKi5haIT%2BBP5PJ0jgru5O1HcZ7NValkKBLLN0TPL1Wsh5fYu0lcHRqtAXmCqZZ7A2WA1V6WYT97d8fT1yRQQbXDs1%2BRzL6ixzs%2FNP0BvilwoxuxhXXi1DxU75vFlUGPrShJGIEE361BYNp%2Fw3H8PRy9YB1s6Vbb5Q0Jl%2Bn6p5znTyOM3LnLscJLSAl4sPHSaR544aWv9vJN5Q5QTcB2A%2FMUWRXTZwzgqoQ6%2B8Bd0kgR4ypCEpMFyAV0ULwlhyT6aNY8IUQfWbmvLbOd2EC%2Bsqkmlrc3pb2Dq0LjeUAgg%3D%3D">
+    <div id="dom"></div>
+    <input type="button" id="doIt" value="DO IT!">
+</body>
+
+</html>

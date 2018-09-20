@@ -1,0 +1,796 @@
+[
+    {
+      "raw": "\n    ",
+      "data": "\n    ",
+      "type": "text"
+    },
+    {
+      "raw": "table class=\"body\" style=\"border-spacing:0; border-collapse:collapse; vertical-align:top; text-align:left; height:100%; width:100%; padding:0\"",
+      "data": "table class=\"body\" style=\"border-spacing:0; border-collapse:collapse; vertical-align:top; text-align:left; height:100%; width:100%; padding:0\"",
+      "type": "tag",
+      "name": "table",
+      "attribs": {
+        "class": "body",
+        "style": "border-spacing:0; border-collapse:collapse; vertical-align:top; text-align:left; height:100%; width:100%; padding:0"
+      },
+      "children": [
+        {
+          "raw": "\n        ",
+          "data": "\n        ",
+          "type": "text"
+        },
+        {
+          "raw": "tbody",
+          "data": "tbody",
+          "type": "tag",
+          "name": "tbody",
+          "children": [
+            {
+              "raw": "\n            ",
+              "data": "\n            ",
+              "type": "text"
+            },
+            {
+              "raw": "tr align=\"left\" style=\"vertical-align:top; text-align:left; padding:0\"",
+              "data": "tr align=\"left\" style=\"vertical-align:top; text-align:left; padding:0\"",
+              "type": "tag",
+              "name": "tr",
+              "attribs": {
+                "align": "left",
+                "style": "vertical-align:top; text-align:left; padding:0"
+              },
+              "children": [
+                {
+                  "raw": "\n                ",
+                  "data": "\n                ",
+                  "type": "text"
+                },
+                {
+                  "raw": "td class=\"center\" align=\"center\" valign=\"top\" style=\"border-collapse:collapse!important; vertical-align:top; text-align:center; padding:0\"",
+                  "data": "td class=\"center\" align=\"center\" valign=\"top\" style=\"border-collapse:collapse!important; vertical-align:top; text-align:center; padding:0\"",
+                  "type": "tag",
+                  "name": "td",
+                  "attribs": {
+                    "class": "center",
+                    "align": "center",
+                    "valign": "top",
+                    "style": "border-collapse:collapse!important; vertical-align:top; text-align:center; padding:0"
+                  },
+                  "children": [
+                    {
+                      "raw": "\n                    ",
+                      "data": "\n                    ",
+                      "type": "text"
+                    },
+                    {
+                      "raw": "center style=\"width:100%\"",
+                      "data": "center style=\"width:100%\"",
+                      "type": "tag",
+                      "name": "center",
+                      "attribs": {
+                        "style": "width:100%"
+                      },
+                      "children": [
+                        {
+                          "raw": "\n                        ",
+                          "data": "\n                        ",
+                          "type": "text"
+                        },
+                        {
+                          "raw": "table class=\"container\" style=\"border-spacing:0; border-collapse:collapse; vertical-align:top; width:600px; margin:0 auto; padding:0\"",
+                          "data": "table class=\"container\" style=\"border-spacing:0; border-collapse:collapse; vertical-align:top; width:600px; margin:0 auto; padding:0\"",
+                          "type": "tag",
+                          "name": "table",
+                          "attribs": {
+                            "class": "container",
+                            "style": "border-spacing:0; border-collapse:collapse; vertical-align:top; width:600px; margin:0 auto; padding:0"
+                          },
+                          "children": [
+                            {
+                              "raw": "\n                            ",
+                              "data": "\n                            ",
+                              "type": "text"
+                            },
+                            {
+                              "raw": "tbody",
+                              "data": "tbody",
+                              "type": "tag",
+                              "name": "tbody",
+                              "children": [
+                                {
+                                  "raw": "\n                                ",
+                                  "data": "\n                                ",
+                                  "type": "text"
+                                },
+                                {
+                                  "raw": "tr align=\"left\" style=\"vertical-align:top; padding:0\"",
+                                  "data": "tr align=\"left\" style=\"vertical-align:top; padding:0\"",
+                                  "type": "tag",
+                                  "name": "tr",
+                                  "attribs": {
+                                    "align": "left",
+                                    "style": "vertical-align:top; padding:0"
+                                  },
+                                  "children": [
+                                    {
+                                      "raw": "\n                                    ",
+                                      "data": "\n                                    ",
+                                      "type": "text"
+                                    },
+                                    {
+                                      "raw": "td align=\"left\" valign=\"top\" style=\"border-collapse:collapse; vertical-align:top; padding:0\"",
+                                      "data": "td align=\"left\" valign=\"top\" style=\"border-collapse:collapse; vertical-align:top; padding:0\"",
+                                      "type": "tag",
+                                      "name": "td",
+                                      "attribs": {
+                                        "align": "left",
+                                        "valign": "top",
+                                        "style": "border-collapse:collapse; vertical-align:top; padding:0"
+                                      },
+                                      "children": [
+                                        {
+                                          "raw": "\n                                        ",
+                                          "data": "\n                                        ",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "raw": "table class=\"header\" style=\"border-spacing:0; vertical-align:top; text-align:inherit; width:100%; padding:12px 0 9px; margin:0; border-bottom:1px solid #e9e9e9\"",
+                                          "data": "table class=\"header\" style=\"border-spacing:0; vertical-align:top; text-align:inherit; width:100%; padding:12px 0 9px; margin:0; border-bottom:1px solid #e9e9e9\"",
+                                          "type": "tag",
+                                          "name": "table",
+                                          "attribs": {
+                                            "class": "header",
+                                            "style": "border-spacing:0; vertical-align:top; text-align:inherit; width:100%; padding:12px 0 9px; margin:0; border-bottom:1px solid #e9e9e9"
+                                          },
+                                          "children": [
+                                            {
+                                              "raw": "\n                                            ",
+                                              "data": "\n                                            ",
+                                              "type": "text"
+                                            },
+                                            {
+                                              "raw": "tbody",
+                                              "data": "tbody",
+                                              "type": "tag",
+                                              "name": "tbody",
+                                              "children": [
+                                                {
+                                                  "raw": "\n                                                ",
+                                                  "data": "\n                                                ",
+                                                  "type": "text"
+                                                },
+                                                {
+                                                  "raw": "tr align=\"left\" style=\"vertical-align:top; text-align:left; padding:0\"",
+                                                  "data": "tr align=\"left\" style=\"vertical-align:top; text-align:left; padding:0\"",
+                                                  "type": "tag",
+                                                  "name": "tr",
+                                                  "attribs": {
+                                                    "align": "left",
+                                                    "style": "vertical-align:top; text-align:left; padding:0"
+                                                  },
+                                                  "children": [
+                                                    {
+                                                      "raw": "\n                                                    ",
+                                                      "data": "\n                                                    ",
+                                                      "type": "text"
+                                                    },
+                                                    {
+                                                      "raw": "td id=\"logo\" width=\"131\" height=\"27\" align=\"left\" valign=\"top\"",
+                                                      "data": "td id=\"logo\" width=\"131\" height=\"27\" align=\"left\" valign=\"top\"",
+                                                      "type": "tag",
+                                                      "name": "td",
+                                                      "attribs": {
+                                                        "id": "logo",
+                                                        "width": "131",
+                                                        "height": "27",
+                                                        "align": "left",
+                                                        "valign": "top"
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "raw": "a href=\"https://developer.apple.com/\"",
+                                                          "data": "a href=\"https://developer.apple.com/\"",
+                                                          "type": "tag",
+                                                          "name": "a",
+                                                          "attribs": {
+                                                            "href": "https://developer.apple.com/"
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "raw": "img src=\"https://developer.apple.com/click/images/apple-developer-logo.png\" width=\"131\" height=\"27\" alt=\"\" border=\"0\" align=\"left\"",
+                                                              "data": "img src=\"https://developer.apple.com/click/images/apple-developer-logo.png\" width=\"131\" height=\"27\" alt=\"\" border=\"0\" align=\"left\"",
+                                                              "type": "tag",
+                                                              "name": "img",
+                                                              "attribs": {
+                                                                "src": "https://developer.apple.com/click/images/apple-developer-logo.png",
+                                                                "width": "131",
+                                                                "height": "27",
+                                                                "alt": "",
+                                                                "border": "0",
+                                                                "align": "left"
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "raw": "\n                                                ",
+                                                      "data": "\n                                                ",
+                                                      "type": "text"
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "raw": "\n                                            ",
+                                                  "data": "\n                                            ",
+                                                  "type": "text"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "raw": "\n                                        ",
+                                              "data": "\n                                        ",
+                                              "type": "text"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "raw": "\n                                        ",
+                                          "data": "\n                                        ",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "raw": "table class=\"content\" style=\"border-spacing:0; vertical-align:top; text-align:inherit; width:100%; padding:44px 0; margin:0; border-bottom:1px solid #e9e9e9\"",
+                                          "data": "table class=\"content\" style=\"border-spacing:0; vertical-align:top; text-align:inherit; width:100%; padding:44px 0; margin:0; border-bottom:1px solid #e9e9e9\"",
+                                          "type": "tag",
+                                          "name": "table",
+                                          "attribs": {
+                                            "class": "content",
+                                            "style": "border-spacing:0; vertical-align:top; text-align:inherit; width:100%; padding:44px 0; margin:0; border-bottom:1px solid #e9e9e9"
+                                          },
+                                          "children": [
+                                            {
+                                              "raw": "\n                                            ",
+                                              "data": "\n                                            ",
+                                              "type": "text"
+                                            },
+                                            {
+                                              "raw": "tbody",
+                                              "data": "tbody",
+                                              "type": "tag",
+                                              "name": "tbody",
+                                              "children": [
+                                                {
+                                                  "raw": "\n                                                ",
+                                                  "data": "\n                                                ",
+                                                  "type": "text"
+                                                },
+                                                {
+                                                  "raw": "tr align=\"left\" style=\"vertical-align:top; text-align:left; padding:0\"",
+                                                  "data": "tr align=\"left\" style=\"vertical-align:top; text-align:left; padding:0\"",
+                                                  "type": "tag",
+                                                  "name": "tr",
+                                                  "attribs": {
+                                                    "align": "left",
+                                                    "style": "vertical-align:top; text-align:left; padding:0"
+                                                  },
+                                                  "children": [
+                                                    {
+                                                      "raw": "\n                                                    ",
+                                                      "data": "\n                                                    ",
+                                                      "type": "text"
+                                                    },
+                                                    {
+                                                      "raw": "td align=\"left\" valign=\"top\" style=\"border-collapse:collapse!important; vertical-align:top; text-align:left; padding:0\"",
+                                                      "data": "td align=\"left\" valign=\"top\" style=\"border-collapse:collapse!important; vertical-align:top; text-align:left; padding:0\"",
+                                                      "type": "tag",
+                                                      "name": "td",
+                                                      "attribs": {
+                                                        "align": "left",
+                                                        "valign": "top",
+                                                        "style": "border-collapse:collapse!important; vertical-align:top; text-align:left; padding:0"
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "raw": "\n                                                        ",
+                                                          "data": "\n                                                        ",
+                                                          "type": "text"
+                                                        },
+                                                        {
+                                                          "raw": "p style=\"color:#333333; margin:0; padding:0; font-weight:300; line-height:1.6em; font-size:16px\"",
+                                                          "data": "p style=\"color:#333333; margin:0; padding:0; font-weight:300; line-height:1.6em; font-size:16px\"",
+                                                          "type": "tag",
+                                                          "name": "p",
+                                                          "attribs": {
+                                                            "style": "color:#333333; margin:0; padding:0; font-weight:300; line-height:1.6em; font-size:16px"
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "raw": "\n                                                            Dear Storm Leeon, ",
+                                                              "data": "\n                                                            Dear Storm Leeon, ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "br",
+                                                              "data": "br",
+                                                              "type": "tag",
+                                                              "name": "br"
+                                                            },
+                                                            {
+                                                              "raw": "\n                                                            ",
+                                                              "data": "\n                                                            ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "br",
+                                                              "data": "br",
+                                                              "type": "tag",
+                                                              "name": "br"
+                                                            },
+                                                            {
+                                                              "raw": "\n                                                            You have not yet purchased your Apple Developer Program. If\n                                                            you do not ",
+                                                              "data": "\n                                                            You have not yet purchased your Apple Developer Program. If\n                                                            you do not ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "a href=\"https://developer.apple.com/enroll/\" class=\"aapl-link\" style=\"color:#0088cc; text-decoration:none\"",
+                                                              "data": "a href=\"https://developer.apple.com/enroll/\" class=\"aapl-link\" style=\"color:#0088cc; text-decoration:none\"",
+                                                              "type": "tag",
+                                                              "name": "a",
+                                                              "attribs": {
+                                                                "href": "https://developer.apple.com/enroll/",
+                                                                "class": "aapl-link",
+                                                                "style": "color:#0088cc; text-decoration:none"
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "raw": "\n                                                                purchase",
+                                                                  "data": "\n                                                                purchase",
+                                                                  "type": "text"
+                                                                }
+                                                              ]
+                                                            },
+                                                            {
+                                                              "raw": " your program within the next seven (7)\n                                                            days, we will assume you are no longer interested in\n                                                            continuing your enrollment and will withdraw your request.\n                                                            ",
+                                                              "data": " your program within the next seven (7)\n                                                            days, we will assume you are no longer interested in\n                                                            continuing your enrollment and will withdraw your request.\n                                                            ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "br",
+                                                              "data": "br",
+                                                              "type": "tag",
+                                                              "name": "br"
+                                                            },
+                                                            {
+                                                              "raw": "\n                                                            ",
+                                                              "data": "\n                                                            ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "br",
+                                                              "data": "br",
+                                                              "type": "tag",
+                                                              "name": "br"
+                                                            },
+                                                            {
+                                                              "raw": "\n                                                            Should you wish to join the Apple Developer Program after\n                                                            your enrollment has been withdrawn, please\n                                                            ",
+                                                              "data": "\n                                                            Should you wish to join the Apple Developer Program after\n                                                            your enrollment has been withdrawn, please\n                                                            ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "a href=\"https://developer.apple.com/contact/submit/\" class=\"aapl-link\" style=\"color:#0088cc; text-decoration:none\"",
+                                                              "data": "a href=\"https://developer.apple.com/contact/submit/\" class=\"aapl-link\" style=\"color:#0088cc; text-decoration:none\"",
+                                                              "type": "tag",
+                                                              "name": "a",
+                                                              "attribs": {
+                                                                "href": "https://developer.apple.com/contact/submit/",
+                                                                "class": "aapl-link",
+                                                                "style": "color:#0088cc; text-decoration:none"
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "raw": "\n                                                                contact us",
+                                                                  "data": "\n                                                                contact us",
+                                                                  "type": "text"
+                                                                }
+                                                              ]
+                                                            },
+                                                            {
+                                                              "raw": " and reference your enrollment ID\n                                                            FJ24UY6G4J. ",
+                                                              "data": " and reference your enrollment ID\n                                                            FJ24UY6G4J. ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "br",
+                                                              "data": "br",
+                                                              "type": "tag",
+                                                              "name": "br"
+                                                            },
+                                                            {
+                                                              "raw": "\n                                                            ",
+                                                              "data": "\n                                                            ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "br",
+                                                              "data": "br",
+                                                              "type": "tag",
+                                                              "name": "br"
+                                                            },
+                                                            {
+                                                              "raw": "\n                                                            Best regards,",
+                                                              "data": "\n                                                            Best regards,",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "br",
+                                                              "data": "br",
+                                                              "type": "tag",
+                                                              "name": "br"
+                                                            },
+                                                            {
+                                                              "raw": "\n                                                            Apple Developer Program Support ",
+                                                              "data": "\n                                                            Apple Developer Program Support ",
+                                                              "type": "text"
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "raw": "\n                                                    ",
+                                                          "data": "\n                                                    ",
+                                                          "type": "text"
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "raw": "\n                                                ",
+                                                      "data": "\n                                                ",
+                                                      "type": "text"
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "raw": "\n                                            ",
+                                                  "data": "\n                                            ",
+                                                  "type": "text"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "raw": "\n                                        ",
+                                              "data": "\n                                        ",
+                                              "type": "text"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "raw": "\n                                        ",
+                                          "data": "\n                                        ",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "raw": "table class=\"footer\" style=\"border-spacing:0; border-collapse:collapse; vertical-align:top; width:100%; margin:25px 0 10px; padding:0\"",
+                                          "data": "table class=\"footer\" style=\"border-spacing:0; border-collapse:collapse; vertical-align:top; width:100%; margin:25px 0 10px; padding:0\"",
+                                          "type": "tag",
+                                          "name": "table",
+                                          "attribs": {
+                                            "class": "footer",
+                                            "style": "border-spacing:0; border-collapse:collapse; vertical-align:top; width:100%; margin:25px 0 10px; padding:0"
+                                          },
+                                          "children": [
+                                            {
+                                              "raw": "\n                                            ",
+                                              "data": "\n                                            ",
+                                              "type": "text"
+                                            },
+                                            {
+                                              "raw": "tbody",
+                                              "data": "tbody",
+                                              "type": "tag",
+                                              "name": "tbody",
+                                              "children": [
+                                                {
+                                                  "raw": "\n                                                ",
+                                                  "data": "\n                                                ",
+                                                  "type": "text"
+                                                },
+                                                {
+                                                  "raw": "tr align=\"left\" style=\"vertical-align:top; text-align:left; padding:0\"",
+                                                  "data": "tr align=\"left\" style=\"vertical-align:top; text-align:left; padding:0\"",
+                                                  "type": "tag",
+                                                  "name": "tr",
+                                                  "attribs": {
+                                                    "align": "left",
+                                                    "style": "vertical-align:top; text-align:left; padding:0"
+                                                  },
+                                                  "children": [
+                                                    {
+                                                      "raw": "\n                                                    ",
+                                                      "data": "\n                                                    ",
+                                                      "type": "text"
+                                                    },
+                                                    {
+                                                      "raw": "td align=\"left\" valign=\"top\" style=\"border-collapse:collapse; vertical-align:top; padding:0\"",
+                                                      "data": "td align=\"left\" valign=\"top\" style=\"border-collapse:collapse; vertical-align:top; padding:0\"",
+                                                      "type": "tag",
+                                                      "name": "td",
+                                                      "attribs": {
+                                                        "align": "left",
+                                                        "valign": "top",
+                                                        "style": "border-collapse:collapse; vertical-align:top; padding:0"
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "raw": "\n                                                        ",
+                                                          "data": "\n                                                        ",
+                                                          "type": "text"
+                                                        },
+                                                        {
+                                                          "raw": "p class=\"left-align-mobile\" style=\"color:#999999; line-height:1.6em; margin:0; padding:0; font-size:9px; font-weight:300\"",
+                                                          "data": "p class=\"left-align-mobile\" style=\"color:#999999; line-height:1.6em; margin:0; padding:0; font-size:9px; font-weight:300\"",
+                                                          "type": "tag",
+                                                          "name": "p",
+                                                          "attribs": {
+                                                            "class": "left-align-mobile",
+                                                            "style": "color:#999999; line-height:1.6em; margin:0; padding:0; font-size:9px; font-weight:300"
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "raw": "\n                                                            TM and © 2018 Apple Inc. ",
+                                                              "data": "\n                                                            TM and © 2018 Apple Inc. ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "br",
+                                                              "data": "br",
+                                                              "type": "tag",
+                                                              "name": "br"
+                                                            },
+                                                            {
+                                                              "raw": "\n                                                            One Apple Park Way, MS 301-1TEV, Cupertino, CA 95014.",
+                                                              "data": "\n                                                            One Apple Park Way, MS 301-1TEV, Cupertino, CA 95014.",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "br",
+                                                              "data": "br",
+                                                              "type": "tag",
+                                                              "name": "br"
+                                                            },
+                                                            {
+                                                              "raw": "\n                                                            ",
+                                                              "data": "\n                                                            ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "a href=\"http://www.apple.com/legal/\" style=\"color:#999999; text-decoration:none\"",
+                                                              "data": "a href=\"http://www.apple.com/legal/\" style=\"color:#999999; text-decoration:none\"",
+                                                              "type": "tag",
+                                                              "name": "a",
+                                                              "attribs": {
+                                                                "href": "http://www.apple.com/legal/",
+                                                                "style": "color:#999999; text-decoration:none"
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "raw": "All\n                                                                Rights Reserved",
+                                                                  "data": "All\n                                                                Rights Reserved",
+                                                                  "type": "text"
+                                                                }
+                                                              ]
+                                                            },
+                                                            {
+                                                              "raw": " /\n                                                            ",
+                                                              "data": " /\n                                                            ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "a href=\"http://www.apple.com/legal/privacy/\" style=\"color:#999999; text-decoration:none\"",
+                                                              "data": "a href=\"http://www.apple.com/legal/privacy/\" style=\"color:#999999; text-decoration:none\"",
+                                                              "type": "tag",
+                                                              "name": "a",
+                                                              "attribs": {
+                                                                "href": "http://www.apple.com/legal/privacy/",
+                                                                "style": "color:#999999; text-decoration:none"
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "raw": "\n                                                                Privacy Policy",
+                                                                  "data": "\n                                                                Privacy Policy",
+                                                                  "type": "text"
+                                                                }
+                                                              ]
+                                                            },
+                                                            {
+                                                              "raw": " / ",
+                                                              "data": " / ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "a href=\"https://developer.apple.com/account/\" style=\"color:#999999; text-decoration:none\"",
+                                                              "data": "a href=\"https://developer.apple.com/account/\" style=\"color:#999999; text-decoration:none\"",
+                                                              "type": "tag",
+                                                              "name": "a",
+                                                              "attribs": {
+                                                                "href": "https://developer.apple.com/account/",
+                                                                "style": "color:#999999; text-decoration:none"
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "raw": "\n                                                                Account",
+                                                                  "data": "\n                                                                Account",
+                                                                  "type": "text"
+                                                                }
+                                                              ]
+                                                            },
+                                                            {
+                                                              "raw": " / ",
+                                                              "data": " / ",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "raw": "a href=\"https://developer.apple.com/support/\" style=\"color:#999999; text-decoration:none\"",
+                                                              "data": "a href=\"https://developer.apple.com/support/\" style=\"color:#999999; text-decoration:none\"",
+                                                              "type": "tag",
+                                                              "name": "a",
+                                                              "attribs": {
+                                                                "href": "https://developer.apple.com/support/",
+                                                                "style": "color:#999999; text-decoration:none"
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "raw": "\n                                                                Support",
+                                                                  "data": "\n                                                                Support",
+                                                                  "type": "text"
+                                                                }
+                                                              ]
+                                                            },
+                                                            {
+                                                              "raw": " ",
+                                                              "data": " ",
+                                                              "type": "text"
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "raw": "\n                                                    ",
+                                                          "data": "\n                                                    ",
+                                                          "type": "text"
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "raw": "\n                                                ",
+                                                      "data": "\n                                                ",
+                                                      "type": "text"
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "raw": "\n                                            ",
+                                                  "data": "\n                                            ",
+                                                  "type": "text"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "raw": "\n                                        ",
+                                              "data": "\n                                        ",
+                                              "type": "text"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "raw": "\n                                    ",
+                                          "data": "\n                                    ",
+                                          "type": "text"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "raw": "\n                                ",
+                                      "data": "\n                                ",
+                                      "type": "text"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "raw": "\n                            ",
+                                  "data": "\n                            ",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            {
+                              "raw": "\n                        ",
+                              "data": "\n                        ",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        {
+                          "raw": "\n                    ",
+                          "data": "\n                    ",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    {
+                      "raw": "\n                ",
+                      "data": "\n                ",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "raw": "\n            ",
+                  "data": "\n            ",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "raw": "\n        ",
+              "data": "\n        ",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "raw": "\n    ",
+          "data": "\n    ",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "raw": "\n    ",
+      "data": "\n    ",
+      "type": "text"
+    },
+    {
+      "raw": "img src=\"http://outsideapple.apple.com/img/APPLE_EMAIL_LINK/spacer4.gif?v=2&amp;a=%2FreOOAuRz3hYhvues6ZpFSL6u9uSreWoCAb2lR6%2BfJRIUZNdkxlyJLn4BGgNXpxuQovxYQzRYCHaxI%2Btk434o8QLSvKbH1BG7REL2g%2FDX%2B1UUHGj9vTywcvCxUR9OItK0Tx4mOn%2BmCSVOUcJuCO7P7wJ2WRgp%2BqLfgzPq8Fhh%2FSca1A7Z%2FLonuCxJ00pIdK8IooDyOMzTMyusndlNX5lFbITAha3sl3WicFR6F7Yh4UxHmHKi5haIT%2BBP5PJ0jgru5O1HcZ7NValkKBLLN0TPL1Wsh5fYu0lcHRqtAXmCqZZ7A2WA1V6WYT97d8fT1yRQQbXDs1%2BRzL6ixzs%2FNP0BvilwoxuxhXXi1DxU75vFlUGPrShJGIEE361BYNp%2Fw3H8PRy9YB1s6Vbb5Q0Jl%2Bn6p5znTyOM3LnLscJLSAl4sPHSaR544aWv9vJN5Q5QTcB2A%2FMUWRXTZwzgqoQ6%2B8Bd0kgR4ypCEpMFyAV0ULwlhyT6aNY8IUQfWbmvLbOd2EC%2Bsqkmlrc3pb2Dq0LjeUAgg%3D%3D\"",
+      "data": "img src=\"http://outsideapple.apple.com/img/APPLE_EMAIL_LINK/spacer4.gif?v=2&amp;a=%2FreOOAuRz3hYhvues6ZpFSL6u9uSreWoCAb2lR6%2BfJRIUZNdkxlyJLn4BGgNXpxuQovxYQzRYCHaxI%2Btk434o8QLSvKbH1BG7REL2g%2FDX%2B1UUHGj9vTywcvCxUR9OItK0Tx4mOn%2BmCSVOUcJuCO7P7wJ2WRgp%2BqLfgzPq8Fhh%2FSca1A7Z%2FLonuCxJ00pIdK8IooDyOMzTMyusndlNX5lFbITAha3sl3WicFR6F7Yh4UxHmHKi5haIT%2BBP5PJ0jgru5O1HcZ7NValkKBLLN0TPL1Wsh5fYu0lcHRqtAXmCqZZ7A2WA1V6WYT97d8fT1yRQQbXDs1%2BRzL6ixzs%2FNP0BvilwoxuxhXXi1DxU75vFlUGPrShJGIEE361BYNp%2Fw3H8PRy9YB1s6Vbb5Q0Jl%2Bn6p5znTyOM3LnLscJLSAl4sPHSaR544aWv9vJN5Q5QTcB2A%2FMUWRXTZwzgqoQ6%2B8Bd0kgR4ypCEpMFyAV0ULwlhyT6aNY8IUQfWbmvLbOd2EC%2Bsqkmlrc3pb2Dq0LjeUAgg%3D%3D\"",
+      "type": "tag",
+      "name": "img",
+      "attribs": {
+        "src": "http://outsideapple.apple.com/img/APPLE_EMAIL_LINK/spacer4.gif?v=2&amp;a=%2FreOOAuRz3hYhvues6ZpFSL6u9uSreWoCAb2lR6%2BfJRIUZNdkxlyJLn4BGgNXpxuQovxYQzRYCHaxI%2Btk434o8QLSvKbH1BG7REL2g%2FDX%2B1UUHGj9vTywcvCxUR9OItK0Tx4mOn%2BmCSVOUcJuCO7P7wJ2WRgp%2BqLfgzPq8Fhh%2FSca1A7Z%2FLonuCxJ00pIdK8IooDyOMzTMyusndlNX5lFbITAha3sl3WicFR6F7Yh4UxHmHKi5haIT%2BBP5PJ0jgru5O1HcZ7NValkKBLLN0TPL1Wsh5fYu0lcHRqtAXmCqZZ7A2WA1V6WYT97d8fT1yRQQbXDs1%2BRzL6ixzs%2FNP0BvilwoxuxhXXi1DxU75vFlUGPrShJGIEE361BYNp%2Fw3H8PRy9YB1s6Vbb5Q0Jl%2Bn6p5znTyOM3LnLscJLSAl4sPHSaR544aWv9vJN5Q5QTcB2A%2FMUWRXTZwzgqoQ6%2B8Bd0kgR4ypCEpMFyAV0ULwlhyT6aNY8IUQfWbmvLbOd2EC%2Bsqkmlrc3pb2Dq0LjeUAgg%3D%3D"
+      }
+    },
+    {
+      "raw": "\n    ",
+      "data": "\n    ",
+      "type": "text"
+    },
+    {
+      "raw": "div id=\"dom\"",
+      "data": "div id=\"dom\"",
+      "type": "tag",
+      "name": "div",
+      "attribs": {
+        "id": "dom"
+      }
+    },
+    {
+      "raw": "\n    ",
+      "data": "\n    ",
+      "type": "text"
+    },
+    {
+      "raw": "input type=\"button\" id=\"doIt\" value=\"DO IT!\"",
+      "data": "input type=\"button\" id=\"doIt\" value=\"DO IT!\"",
+      "type": "tag",
+      "name": "input",
+      "attribs": {
+        "type": "button",
+        "id": "doIt",
+        "value": "DO IT!"
+      }
+    },
+    {
+      "raw": "\n\n\n",
+      "data": "\n\n\n",
+      "type": "text"
+    }
+  ]
