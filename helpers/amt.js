@@ -3,7 +3,7 @@ var translateUrl = "https://amtapi.akaminds.co.jp/api/translate/sentence";
 
 function amtLogin() {
     var user = 'trongtv_api';
-    var password = 'Fsoft@amt123#';
+    var password = 'Amt_api@2018##';
     
     $.ajax({
         url: loginUrl,
