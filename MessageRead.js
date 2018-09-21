@@ -112,7 +112,7 @@
             amtTranslate(item.subject, "subject");
             //Translate and show Mail body
             //translate(item.body.content, "body");
-            $("#translated").html(item.body.text);
+            $("#translated").html(item.body.content);
             console.log($("#translated").innerText);
 
             var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
