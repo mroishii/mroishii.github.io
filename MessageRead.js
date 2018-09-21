@@ -7,28 +7,28 @@
         var token;
         $(document).ready(function () {
             //This to inform the Authenticator to automatically close the authentication dialog once the authentication is complete.
-             if (OfficeHelpers.Authenticator.isAuthDialog()) {
+            if (OfficeHelpers.Authenticator.isAuthDialog()) {
                 window.close();
-             }
+            }
 
 
-             //If not logged in to amt, do log in
-             if (Cookies.get('amtToken') === undefined) {
-                 amtLogin();
-             } 
+            //If not logged in to amt, do log in
+            if (Cookies.get('amtToken') === undefined) {
+                amtLogin();
+            }
 
-             //If token is not existed, do authentication stuff
-             if (Cookies.get('access_token') === undefined) {
+            //If token is not existed, do authentication stuff
+            if (Cookies.get('access_token') === undefined) {
                 $('#errormessage').text("You are not authorized or your session has expired.");
                 doAuthorize();
-             } else {
-                 //Get token
-                 token = Cookies.get("access_token");
-                 // // FOR LOG PURPOSE
-                 //logIt("token", token);
-                 //Load Item Properties
-                 loadItemProps(token);
-             }
+            } else {
+                //Get token
+                token = Cookies.get("access_token");
+                // // FOR LOG PURPOSE
+                //logIt("token", token);
+                //Load Item Properties
+                loadItemProps(token);
+            }
         });
     };
 
@@ -36,11 +36,13 @@
     function doAuthorize() {
         //Create new authenticator
         var authenticator = new OfficeHelpers.Authenticator();
-                
+
         //Parameters for authenticator
         var client_id = '40f52d05-f5d8-4b29-9356-4248678802ba'; //Replace with another valid application id after register app with microsoft portal
-        var configs = {redirectUrl: 'https://mroishii.github.io/MessageRead.html',
-                       scope: 'https://graph.microsoft.com/mail.readwrite'};
+        var configs = {
+            redirectUrl: 'https://mroishii.github.io/MessageRead.html',
+            scope: 'https://graph.microsoft.com/mail.readwrite'
+        };
 
         // register Microsoft (Azure AD 2.0 Converged auth) endpoint using parameters)
         authenticator.endpoints.registerMicrosoftAuth(client_id, configs);
@@ -48,11 +50,11 @@
         // Authentication for the default Microsoft endpoint
         authenticator
             .authenticate(OfficeHelpers.DefaultEndpoints.Microsoft)
-            .then(function (token) { /* Microsoft Token */ 
+            .then(function (token) { /* Microsoft Token */
                 //console.log(token);
                 $('#errormessage').text("Authorized");
                 var inThirtyMinutes = new Date(new Date().getTime() + 30 * 60 * 1000);
-                Cookies.set('access_token', (String)(token.access_token), {expires : inThirtyMinutes});
+                Cookies.set('access_token', (String)(token.access_token), { expires: inThirtyMinutes });
                 location.reload();
             })
             .catch(OfficeHelpers.Utilities.log);
@@ -62,15 +64,15 @@
     function getItemRestId() {
         var itemId;
         if (Office.context.mailbox.diagnostics.hostName === 'OutlookIOS') {
-          // itemId is already REST-formatted
-          itemId = Office.context.mailbox.item.itemId
-          
+            // itemId is already REST-formatted
+            itemId = Office.context.mailbox.item.itemId
+
         } else {
-          // Convert to an item ID for API v2.0
-          itemId = Office.context.mailbox.convertToRestId(
-            Office.context.mailbox.item.itemId,
-            Office.MailboxEnums.RestVersion.v2_0
-          );
+            // Convert to an item ID for API v2.0
+            itemId = Office.context.mailbox.convertToRestId(
+                Office.context.mailbox.item.itemId,
+                Office.MailboxEnums.RestVersion.v2_0
+            );
         }
         //logIt("Item ID", itemId);
         return itemId;
@@ -91,7 +93,7 @@
         //var getMessageUrl = Office.context.mailbox.restUrl +
         //             '/v2.0/me/messages/' + itemId;
         //--------NOT WORKING--------------------------------------------------------
-        
+
         //The URL use to get Mail Item
         var getMessageUrl = "https://graph.microsoft.com/v1.0/me/messages/" + itemId;
         //Call API to get Mail Item
@@ -99,7 +101,7 @@
             url: getMessageUrl,
             dataType: 'json',
             headers: { 'Authorization': 'Bearer ' + accessToken }
-        }).done(function(item){
+        }).done(function (item) {
             // Message is passed in `item`
 
             //----------FOR LOG PURPOSE ONLY--------------------------------------
@@ -113,7 +115,6 @@
             //Translate and show Mail body
             //translate(item.body.content, "body");
             $("#translated").html(item.body.content);
-            console.log($("#translated").text());
 
             var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
                 if (error) {
@@ -121,12 +122,14 @@
                 } else {
                     //[...parsing done, do something...]
                 }
-            });
-            var parser = new Tautologistics.NodeHtmlParser.Parser(handler);
+            }, { verbose: false, ignoreWhitespace: true });
+
+            var parser = new htmlparser.Parser(handler);
             parser.parseComplete(item.body.content);
             console.log(JSON.stringify(handler.dom, null, 2));
+
             //amtTranslate(item.body.content, "body");
-        }).fail(function(error){
+        }).fail(function (error) {
             // Show error message then request authorization again
             $('#errormessage').text("You are not authorized or your session has expired.");
             console.log("Error", error.status);
@@ -138,15 +141,17 @@
     function translate(source, content) {
         //Google API Key. Replace this with another valid key.
         var GOOGLE_API_KEY = 'AIzaSyAYlBYQshvNVdRwBdCjXT6k8fqdxmoHnn0';
-       
+
         $.ajax({
-            url:'https://translation.googleapis.com/language/translate/v2',
-            type:"post",
-            dataType:"json",
-            data: {'q': source,
-                   'target' : 'vi',
-                   'key' : GOOGLE_API_KEY},
-            success: function(json) {
+            url: 'https://translation.googleapis.com/language/translate/v2',
+            type: "post",
+            dataType: "json",
+            data: {
+                'q': source,
+                'target': 'vi',
+                'key': GOOGLE_API_KEY
+            },
+            success: function (json) {
                 if (content === "subject") {
                     $("#subject").html(json.data.translations[0].translatedText);
                 } else if (content === "body") {
@@ -168,7 +173,7 @@
     //     tbody.append(makeTableRow(name, value));
     // }
 
-    
+
     // // THIS WILL NOT WORKED
     // function getEWSToken() {
     //     Office.context.mailbox.getCallbackTokenAsync({isRest: true}, function (result) {
@@ -183,5 +188,5 @@
     // }
 
 
-    
+
 })();
