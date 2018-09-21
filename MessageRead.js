@@ -124,7 +124,7 @@
                 }
             }, { verbose: false, ignoreWhitespace: true });
 
-            var parser = new htmlparser.Parser(handler);
+            var parser = new Tautologistics.NodeHtmlParser.Parser(handler);
             parser.parseComplete(item.body.content);
             console.log(JSON.stringify(handler.dom, null, 2));
 
