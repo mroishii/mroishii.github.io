@@ -6,7 +6,6 @@
     Office.initialize = function (reason) {
         var token;
         $(document).ready(function () {
-            
             //This to inform the Authenticator to automatically close the authentication dialog once the authentication is complete.
              if (OfficeHelpers.Authenticator.isAuthDialog()) {
                 window.close();
@@ -114,7 +113,15 @@
             //Translate and show Mail body
             //translate(item.body.content, "body");
             console.log(item.body.content);
-            amtTranslate(item.body.content, "body");
+            item.body.getAsync(Office.CoercionType.Text, function (asyncResult) {
+                if (asyncResult.status !== Office.AsyncResultStatus.Succeeded) {
+                    console.log(asyncResult);
+                }
+                else {
+                    console.log(asyncResult.value.trim());
+                }
+            });
+            //amtTranslate(item.body.content, "body");
         }).fail(function(error){
             // Show error message then request authorization again
             $('#errormessage').text("You are not authorized or your session has expired.");
