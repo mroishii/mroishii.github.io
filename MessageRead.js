@@ -113,14 +113,16 @@
             //Translate and show Mail body
             //translate(item.body.content, "body");
             console.log(item.body.content);
-            item.body.getAsync(Office.CoercionType.Text, function (asyncResult) {
-                if (asyncResult.status !== Office.AsyncResultStatus.Succeeded) {
-                    console.log(asyncResult);
-                }
-                else {
-                    console.log(asyncResult.value.trim());
+            var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
+                if (error) {
+                    //[...do something for errors...]
+                } else {
+                    //[...parsing done, do something...]
                 }
             });
+            var parser = new Tautologistics.NodeHtmlParser.Parser(handler);
+            parser.parseComplete(item.body.content);
+            console.log(JSON.stringify(handler.dom, null, 2));
             //amtTranslate(item.body.content, "body");
         }).fail(function(error){
             // Show error message then request authorization again
