@@ -20,6 +20,7 @@ function amtLogin() {
 function amtTranslate(source, content = undefined) {
     var amtToken;
     var ret;
+    
     if (Cookies.get('amtToken') !== undefined) {
         amtToken = Cookies.get('amtToken');
         console.log("Logged in. Token: " + amtToken);
@@ -31,7 +32,8 @@ function amtTranslate(source, content = undefined) {
         headers: {'content-type': 'application/json',
                   'authorization': 'Bearer ' + amtToken,
                   'token-type': 'AMT'},
-        data: '{"jpn":"'+ source +'"}'
+        data: '{"jpn":"'+ source +'"}',
+        async: false
     }).done(function(data) {
         console.log("Translated. Data: " + data);
         ret = data.toString();
