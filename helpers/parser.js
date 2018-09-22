@@ -28,12 +28,13 @@ function traverse(node, action = undefined) {
             console.log("Old data:" + $.trim(node[i].data));
             if (action !== undefined) {
                 node[i].data = action($.trim(node[i].data));
+                console.log("New data:" + $.trim(node[i].data));
             }
         }
         
         //If node have children, traverse it too
         if (node[i].children !== undefined) {
-            traverse(node[i].children);
+            traverse(node[i].children, action);
         }
     }
 }
