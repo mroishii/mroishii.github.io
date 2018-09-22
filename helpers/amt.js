@@ -33,7 +33,7 @@ function amtTranslate(source, content = undefined) {
         data: '{"jpn":"'+ source +'"}'
     }).done(function(data) {
         console.log("Translated. Data: " + data);
-        return data;
+        return data.toString();
         // if (content === "subject") {
         //     $("#subject").html(data);
         // } else if (content === "body") {
