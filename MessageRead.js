@@ -111,25 +111,17 @@
 
             //Translate and show Subject
             //translate(item.subject, "subject");
-            amtTranslate(item.subject, "subject");
+            $('#subject').html("<b>" + amtTranslate(item.subject, "subject") + "</b>");
             //Translate and show Mail body
             //translate(item.body.content, "body");
-            $("#translated").html(item.body.content);
-            var source = $.trim($("#translated").text());
-            console.log(source);
-            amtTranslate(source, "body");
-
-            var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
-                if (error) {
-                    //[...do something for errors...]
-                } else {
-                    //[...parsing done, do something...]
-                }
-            }, { verbose: false, ignoreWhitespace: true });
-
-            var parser = new Tautologistics.NodeHtmlParser.Parser(handler);
-            parser.parseComplete(item.body.content);
-            console.log(JSON.stringify(handler.dom, null, 2));
+            
+            //Parse the mail body
+            var parsedMailBody = parseHTML(item.body.content);
+            //Traverse the parsed mail body
+            traverse(parsedMailBody, amtTranslate);
+            //Convert translated mail body back to html and display to div 
+            var mailBodyHtml = html(parsedMailBody);
+            $('#translated').html(mailBodyHtml);
 
             //amtTranslate(item.body.content, "body");
         }).fail(function (error) {

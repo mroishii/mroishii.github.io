@@ -17,7 +17,7 @@ function amtLogin() {
     })
 }
 
-function amtTranslate(source, content) {
+function amtTranslate(source, content = undefined) {
     var amtToken;
     if (Cookies.get('amtToken') !== undefined) {
         amtToken = Cookies.get('amtToken');
@@ -33,11 +33,12 @@ function amtTranslate(source, content) {
         data: '{"jpn":"'+ source +'"}'
     }).done(function(data) {
         console.log("Translated. Data: " + data);
-        if (content === "subject") {
-            $("#subject").html(data);
-        } else if (content === "body") {
-            $("#translated").html(data);
-        }
+        return data;
+        // if (content === "subject") {
+        //     $("#subject").html(data);
+        // } else if (content === "body") {
+        //     $("#translated").html(data);
+        // }
     }).fail(function(error) {
         console.log("Translate failed. Reason: " + error.responseText);
     })
