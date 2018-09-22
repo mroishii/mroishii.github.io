@@ -9,25 +9,123 @@
     <script src="Scripts/jquery-1.9.1.js" type="text/javascript"></script>
 
     <!-- HTML Parser -->
-    <script src="node_modules/htmlparser/lib/htmlparser.js"></script>
+    <script src="Scripts/htmlparser/lib/htmlparser.js"></script>
 
     <script>
         $(function () {
+            'use strict';
             var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
                 if (error) {
                     //[...do something for errors...]
                 } else {
                     //[...parsing done, do something...]
                 }
-            });
+            }, { verbose: false, ignoreWhitespace: true });
             var parser = new Tautologistics.NodeHtmlParser.Parser(handler);
             parser.parseComplete(document.body.innerHTML);
-            alert(JSON.stringify(handler.dom, null, 2));
+
+            var jsonObject = handler.dom;
+
+            console.log("original data below");
+            console.log(jsonObject);
+            console.log("original data end");
+            function traverse(node) {
+                for (var i = 0; i < node.length; i++) {
+                    if (node[i].data !== undefined) {
+                        console.log(amtTranslate($.trim(node[i].data)));
+                    }
+                    if (node[i].children !== undefined) {
+                        traverse(node[i].children);
+                    }
+                }
+            }
+            amtLogin();
+            traverse(jsonObject);
+
+            var loginUrl = 'https://amtapi.akaminds.co.jp/login';
+            var translateUrl = "https://amtapi.akaminds.co.jp/api/translate/sentence";
+            var amtToken = null;
+
+            function amtLogin() {
+                var user = 'trongtv_api';
+                var password = 'Amt_api@2018##';
+
+                $.ajax({
+                    url: loginUrl,
+                    type: 'post',
+                    headers: { 'Content-Type': 'application/json' },
+                    data: '{"username":"' + user + '","password":"' + password + '"}'
+                }).done(function (response) {
+                    amtToken = response.token;
+                }).fail(function (error) {
+                    console.log("Login failed. Reason: " + error.responseText);
+                })
+            }
+
+            function amtTranslate(source) {
+                $.ajax({
+                    url: translateUrl,
+                    type: 'post',
+                    headers: {
+                        'content-type': 'application/json',
+                        'authorization': 'Bearer ' + amtToken,
+                        'token-type': 'AMT'
+                    },
+                    data: '{"jpn":"' + source + '"}'
+                }).done(function (data) {
+                    return data;
+                }).fail(function (error) {
+                    console.log("Translate failed. Reason: " + error.responseText);
+                })
+            }
+
         }) 
     </script>
 
 </head>
 
 <body>
-    <input type='button' id='login' value='Log in'>
+    <!-- Mail Content start-->
+    <div dir="ltr">ファムさん
+        <div>いつもお世話になっております。</div>
+        <div><br>
+        </div>
+        <div>今日の会議の件について、</div>
+        <div>もう一回確認させていただきますが。</div>
+        <div>資料を送っていただけますか</div>
+        <div><br>
+        </div>
+        <div>よろしくお願いいたします。</div>
+        <div>
+            <div><br>
+            </div>
+            -- <br>
+            <div class="gmail_signature">
+                <div dir="ltr">ECCコンピュータ専門学校
+                    <div>マルチメディア研究学科</div>
+                    <div>IT研究開発コース</div>
+                    <div>PHAM HUY TUAN</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mail Content end-->
+    <div id="DAB4FAD8-2DD7-40BB-A1B8-4E2AA1F9FDF2"><br>
+        <table style="border-top:1px solid #d3d4de">
+            <tbody>
+                <tr>
+                    <td style="width:55px; padding-top:13px"><a href="https://www.avast.com/sig-email?utm_medium=email&amp;utm_source=link&amp;utm_campaign=sig-email&amp;utm_content=webmail&amp;utm_term=icon"
+                            target="_blank"><img src="https://ipmcdn.avast.com/images/icons/icon-envelope-tick-round-orange-animated-no-repeat-v1.gif"
+                                alt="" width="46" height="29" style="width:46px; height:29px"></a></td>
+                    <td style="width:470px; padding-top:12px; color:#41424e; font-size:13px; font-family:Arial,Helvetica,sans-serif; line-height:18px">
+                        Virus-free. <a href="https://www.avast.com/sig-email?utm_medium=email&amp;utm_source=link&amp;utm_campaign=sig-email&amp;utm_content=webmail&amp;utm_term=link"
+                            target="_blank" style="color:#4453ea">
+                            www.avast.com</a> </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="#DAB4FAD8-2DD7-40BB-A1B8-4E2AA1F9FDF2" width="1" height="1"></a>
+    </div>
 </body>
+
+</html>
