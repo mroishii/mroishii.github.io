@@ -19,6 +19,7 @@ function amtLogin() {
 
 function amtTranslate(source, content = undefined) {
     var amtToken;
+    var ret;
     if (Cookies.get('amtToken') !== undefined) {
         amtToken = Cookies.get('amtToken');
         console.log("Logged in. Token: " + amtToken);
@@ -33,7 +34,7 @@ function amtTranslate(source, content = undefined) {
         data: '{"jpn":"'+ source +'"}'
     }).done(function(data) {
         console.log("Translated. Data: " + data);
-        return data.toString();
+        ret = data.toString();
         // if (content === "subject") {
         //     $("#subject").html(data);
         // } else if (content === "body") {
@@ -42,4 +43,6 @@ function amtTranslate(source, content = undefined) {
     }).fail(function(error) {
         console.log("Translate failed. Reason: " + error.responseText);
     })
+
+    return ret;
 }
