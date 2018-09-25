@@ -3,9 +3,9 @@ function parseHTML(html) {
     //Get html-parser handler's instance
     var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
         if (error) {
-            console.log("parse failed. error: " + error);
+            console.log("Parse Failed. error: " + error);
         } else {
-            console.log("parse completed");
+            console.log("Parse Completed");
         }
     }, { verbose: false, ignoreWhitespace: true }); //Ignore some useless stuff
 
@@ -20,7 +20,6 @@ function parseHTML(html) {
 
 //Loop through entire json object, do the action stuff
 function traverse(node, action = undefined) {
-    console.log(action);
     //Loop through every node inside parent
     for (var i = 0; i < node.length; i++) {
         //Any node with text data will be translate

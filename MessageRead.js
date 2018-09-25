@@ -10,13 +10,10 @@
             if (OfficeHelpers.Authenticator.isAuthDialog()) {
                 window.close();
             }
-
-
             //If not logged in to amt, do log in
             if (Cookies.get('amtToken') === undefined) {
                 amtLogin();
             }
-
             //If token is not existed, do authentication stuff
             if (Cookies.get('access_token') === undefined) {
                 $('#errormessage').text("You are not authorized or your session has expired.");
@@ -107,13 +104,16 @@
             //----------FOR LOG PURPOSE ONLY--------------------------------------
             //tbody.append(makeTableRow("Subject", item.subject));
             //tbody.append(makeTableRow("ContentType", item.body.contentType));
-            //--------------------------------------------------------------------
-
+            
+            //-----------TRANSLATE WITH GOOGLE TRANSLATION--------------------------------------
             //Translate and show Subject
             //translate(item.subject, "subject");
-            $('#subject').html("<b>" + amtTranslate(item.subject, "subject") + "</b>");
             //Translate and show Mail body
             //translate(item.body.content, "body");
+            
+            //-----------TRANSLATE WITH AKAMINDS------------------------------------------------
+            //Translate and show Subject
+            $('#subject').html("<b>" + amtTranslate(item.subject, "subject") + "</b>");
             
             //Parse the mail body
             var parsedMailBody = parseHTML(item.body.content);
@@ -123,7 +123,6 @@
             var mailBodyHtml = html(parsedMailBody);
             $('#translated').html(mailBodyHtml);
 
-            //amtTranslate(item.body.content, "body");
         }).fail(function (error) {
             // Show error message then request authorization again
             $('#errormessage').text("You are not authorized or your session has expired.");
@@ -133,28 +132,28 @@
     }
 
     //Call Translation API to get translated result
-    function translate(source, content) {
-        //Google API Key. Replace this with another valid key.
-        var GOOGLE_API_KEY = 'AIzaSyAYlBYQshvNVdRwBdCjXT6k8fqdxmoHnn0';
+    // function translate(source, content) {
+    //     //Google API Key. Replace this with another valid key.
+    //     var GOOGLE_API_KEY = 'AIzaSyAYlBYQshvNVdRwBdCjXT6k8fqdxmoHnn0';
 
-        $.ajax({
-            url: 'https://translation.googleapis.com/language/translate/v2',
-            type: "post",
-            dataType: "json",
-            data: {
-                'q': source,
-                'target': 'vi',
-                'key': GOOGLE_API_KEY
-            },
-            success: function (json) {
-                if (content === "subject") {
-                    $("#subject").html(json.data.translations[0].translatedText);
-                } else if (content === "body") {
-                    $("#translated").html(json.data.translations[0].translatedText);
-                }
-            }
-        });
-    }
+    //     $.ajax({
+    //         url: 'https://translation.googleapis.com/language/translate/v2',
+    //         type: "post",
+    //         dataType: "json",
+    //         data: {
+    //             'q': source,
+    //             'target': 'vi',
+    //             'key': GOOGLE_API_KEY
+    //         },
+    //         success: function (json) {
+    //             if (content === "subject") {
+    //                 $("#subject").html(json.data.translations[0].translatedText);
+    //             } else if (content === "body") {
+    //                 $("#translated").html(json.data.translations[0].translatedText);
+    //             }
+    //         }
+    //     });
+    // }
     // //THIS SECTION IS FOR LOG PURPOSE ONLY
     // function makeTableRow(name, value) {
     //     return $("<tr><td><strong>" + name +
