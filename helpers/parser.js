@@ -25,9 +25,9 @@ function traverse(node, action = undefined) {
     for (var i = 0; i < node.length; i++) {
         //Any node with text data will be translate
         if (node[i].data !== undefined) {
-            console.log('Old data:' + $.trim(node[i].data).replace("\r\n", "\\n"));
+            console.log('Old data:' + $.trim(node[i].data).replace(/(\r\n|\n|\r)/gm, "\\n"));
             if (action !== undefined) {
-                node[i].data = action($.trim(node[i].data).replace("\r\n", "\\n"));
+                node[i].data = action($.trim(node[i].data).replace(/(\r\n|\n|\r)/gm, "\\n"));
                 console.log('New data:' + $.trim(node[i].data));
             }
         }
