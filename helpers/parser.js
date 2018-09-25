@@ -3,9 +3,9 @@ function parseHTML(html) {
     //Get html-parser handler's instance
     var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
         if (error) {
-            console.log("Parse Failed. error: " + error);
+            console.log('Parse Failed. error: ' + error);
         } else {
-            console.log("Parse Completed");
+            console.log('Parse Completed');
         }
     }, { verbose: false, ignoreWhitespace: true }); //Ignore some useless stuff
 
@@ -15,6 +15,7 @@ function parseHTML(html) {
     //Parse the html content
     parser.parseComplete(html);
 
+    console.log(handler.dom);
     return handler.dom;
 }
 
@@ -24,10 +25,10 @@ function traverse(node, action = undefined) {
     for (var i = 0; i < node.length; i++) {
         //Any node with text data will be translate
         if (node[i].data !== undefined) {
-            console.log("Old data:" + $.trim(node[i].data));
+            console.log('Old data:' + $.trim(node[i].data));
             if (action !== undefined) {
                 node[i].data = action($.trim(node[i].data));
-                console.log("New data:" + $.trim(node[i].data));
+                console.log('New data:' + $.trim(node[i].data));
             }
         }
         

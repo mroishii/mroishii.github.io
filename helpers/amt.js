@@ -11,6 +11,7 @@ function amtLogin() {
         headers: {'Content-Type': 'application/json'},
         data: '{"username":"'+ user +'","password":"'+ password +'"}'
     }).done(function(response) {
+        //console.log("Logged in. Token: " + amtToken);
         Cookies.set('amtToken', response.token, { expires: inThirtyMinutes });
     }).fail(function(error) {
         console.log("Login failed. Reason: " + error.responseText);
@@ -23,7 +24,6 @@ function amtTranslate(source, content = undefined) {
     
     if (Cookies.get('amtToken') !== undefined) {
         amtToken = Cookies.get('amtToken');
-        console.log("Logged in. Token: " + amtToken);
     } else {
         amtLogin();
     }

@@ -115,6 +115,7 @@
             //Translate and show Subject
             $('#subject').html("<b>" + amtTranslate(item.subject, "subject") + "</b>");
             
+            console.log(item.body.content);
             //Parse the mail body
             var parsedMailBody = parseHTML(item.body.content);
             //Traverse the parsed mail body
