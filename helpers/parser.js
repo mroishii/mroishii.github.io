@@ -24,22 +24,23 @@ function traverse(node) {
     //Loop through every node inside parent
     for (var i = 0; i < node.length; i++) {
         //Any node with text data will be translate
-        if (node[i].data !== undefined) {
-            var oldData = $.trim(node[i].data).replace(/(\r\n|\n|\r)/gm, "\\n");
+        var currentNode = node[i];
+        if (currentNode.data !== undefined) {
+            var oldData = $.trim(currentNode.data).replace(/(\r\n|\n|\r)/gm, "\\n");
             var callback = function (data) {
                 console.log(data)
-                console.log(node[i]);
+                console.log(currentNode);
             };
             
             console.log(oldData);
-            amtTranslate(oldData, "body", callback, node[i]);
-            console.log(node[i].data);
+            amtTranslate(oldData, "body", callback, currentNode);
+            console.log(currentNode.data);
             
         }
         
         //If node have children, traverse it too
-        if (node[i].children !== undefined) {
-            traverse(node[i].children);
+        if (currentNode.children !== undefined) {
+            traverse(currentNode.children);
         }
     }
 }
