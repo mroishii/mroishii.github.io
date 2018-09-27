@@ -29,7 +29,7 @@ function traverse(node) {
             var oldData = $.trim(currentNode.data).replace(/(\r\n|\n|\r)/gm, "\\n");
             var callback = function (data) {
                 console.log(data)
-                console.log(currentNode);
+                currentNode.data = data;
             };
             
             console.log(oldData);
