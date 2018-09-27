@@ -20,21 +20,20 @@ function parseHTML(html) {
 }
 
 //Loop through entire json object, do the action stuff
-function traverse(node, action = undefined) {
+function traverse(node) {
     //Loop through every node inside parent
     for (var i = 0; i < node.length; i++) {
         //Any node with text data will be translate
         if (node[i].data !== undefined) {
             var oldData = $.trim(node[i].data).replace(/(\r\n|\n|\r)/gm, "\\n");
             console.log(oldData);
-            if (action !== undefined) {
-                action(oldData, "body", node[i]);
-            }
+            amtTranslate(oldData, "body", node[i]);
+            
         }
         
         //If node have children, traverse it too
         if (node[i].children !== undefined) {
-            traverse(node[i].children, action);
+            traverse(node[i].children);
         }
     }
 }
