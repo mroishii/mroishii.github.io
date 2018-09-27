@@ -51,7 +51,7 @@ function amtTranslate(source, contentType) {
             
             //If node have children, traverse it too
             if (currentNode.children !== undefined) {
-                traverse(currentNode.children);
+                trav(currentNode.children);
             }
         }
     }
