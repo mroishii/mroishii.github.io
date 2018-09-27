@@ -35,7 +35,7 @@ function traverse(node, mode) {
                 textToTranslate.push(oldData);
             } else if (mode == "replace") {
                 currentNode.data = translatedData[traverseIndex][traverseIndex];
-                console.log('new:' + currentNode.data)
+                console.log('new:' + currentNode.data);
                 traverseIndex++;
             }  
         }
