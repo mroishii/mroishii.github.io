@@ -28,6 +28,7 @@ function traverse(node) {
             var oldData = $.trim(node[i].data).replace(/(\r\n|\n|\r)/gm, "\\n");
             console.log(oldData);
             amtTranslate(oldData, "body", node[i]);
+            console.log(node[i].data);
             
         }
         
