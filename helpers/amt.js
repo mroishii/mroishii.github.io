@@ -1,5 +1,6 @@
 var loginUrl = 'https://amtapi.akaminds.co.jp/login';
 var translateUrl = "https://amtapi.akaminds.co.jp/api/translate/sentence";
+var translatedData = new Array();
 
 function amtLogin() {
     var user = 'trongtv_api';
@@ -18,10 +19,9 @@ function amtLogin() {
     })
 }
 
-function amtTranslate(source, content = undefined) {
+function amtTranslate(source, contentType, node = undefined) {
     var amtToken;
-    var ret;
-    
+
     if (Cookies.get('amtToken') !== undefined) {
         amtToken = Cookies.get('amtToken');
     } else {
@@ -35,18 +35,15 @@ function amtTranslate(source, content = undefined) {
                   'authorization': 'Bearer ' + amtToken,
                   'token-type': 'AMT'},
         data: '{"jpn":"'+ source +'"}',
-        async: false
     }).done(function(data) {
-        ret = data.toString();
-        // if (content === "subject") {
-        //     $("#subject").html(data);
-        // } else if (content === "body") {
-        //     $("#translated").html(data);
-        // }
+        if (contentType === "subject") {
+            $("#subject").html("<b>" + data + "</b>");
+        } else if (contentType === "body") {
+            if (node !== undefined) {
+                node.data = data.replace(/(\r\n|\n|\r)/gm, "<br>");
+            }
+        }
     }).fail(function(error) {
         console.log("Translate failed. Reason: " + error.responseText);
-        ret = source;
     })
-
-    return ret;
 }

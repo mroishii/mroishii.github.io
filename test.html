@@ -16,82 +16,8 @@
 
     <script>
         $(function () {
-            'use strict';
-            var handler = new Tautologistics.NodeHtmlParser.DefaultHandler(function (error, dom) {
-                if (error) {
-                    //[...do something for errors...]
-                } else {
-                    //[...parsing done, do something...]
-                }
-            }, { verbose: false, ignoreWhitespace: true });
-            var parser = new Tautologistics.NodeHtmlParser.Parser(handler);
-            parser.parseComplete(document.body.innerHTML);
-
-            var jsonObject = handler.dom;
-
-            console.log("original data below");
-            console.log(jsonObject);
-            console.log("original data end");
-            function traverse(node) {
-                for (var i = 0; i < node.length; i++) {
-                    if (node[i].data !== undefined) {
-                        console.log("Old data:" + $.trim(node[i].data));
-                        node[i].data = "translated";
-                        
-                    }
-                    if (node[i].children !== undefined) {
-                        traverse(node[i].children);
-                    }
-                }
-            }
             
-            
-            traverse(jsonObject);
-            console.log("vvvvv    object after changed below   vvvvvvvvv");
-            console.log(jsonObject);
-
-            var htmlString = html(jsonObject);
-            console.log(htmlString);
-            $("#afterTranslate").html(htmlString);
-
-            var loginUrl = 'https://amtapi.akaminds.co.jp/login';
-            var translateUrl = "https://amtapi.akaminds.co.jp/api/translate/sentence";
-            var amtToken = null;
-
-            function amtLogin() {
-                var user = 'trongtv_api';
-                var password = 'Amt_api@2018##';
-
-                $.ajax({
-                    url: loginUrl,
-                    type: 'post',
-                    headers: { 'content-type': 'application/json' },
-                    data: '{"username":"' + user + '","password":"' + password + '"}'
-                }).done(function (response) {
-                    amtToken = response.token;
-                }).fail(function (error) {
-                    console.log("Login failed. Reason: " + error.responseText);
-                })
-            }
-
-            function amtTranslate(source) {
-                $.ajax({
-                    url: translateUrl,
-                    type: 'post',
-                    headers: {
-                        'content-type': 'application/json',
-                        'authorization': 'Bearer ' + amtToken,
-                        'token-type': 'AMT'
-                    },
-                    data: '{"jpn":"' + source + '"}'
-                }).done(function (data) {
-                    return data;
-                }).fail(function (error) {
-                    console.log("Translate failed. Reason: " + error.responseText);
-                })
-            }
-
-        }) 
+        })    
     </script>
 
 </head>
