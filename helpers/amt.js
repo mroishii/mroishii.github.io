@@ -36,12 +36,12 @@ function amtTranslate(source, contentType, traverseIndex = undefined) {
                   'token-type': 'AMT'},
         data: '{"jpn":"'+ source +'"}',
     }).done(function(data) {
-        if (contentType === "subject") {
+        if (contentType == "subject") {
             $("#subject").html("<b>" + data + "</b>");
         } else if (contentType == "body") {
             //callback.apply(callbackObj, [data.replace(/(\r\n|\n|\r)/gm, "<br>")]);
             var pushData = {};
-            pushData[traverseIndex.toString()] = data.replace(/(\r\n|\n|\r)/gm, "<br>");
+            pushData[traverseIndex] = data.replace(/(\r\n|\n|\r)/gm, "<br>");
             console.log(pushData);
             translatedData.push(pushData);
         }

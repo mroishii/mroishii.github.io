@@ -32,7 +32,7 @@ function traverse(node, mode) {
                 amtTranslate(oldData, "body", traverseIndex);
                 traverseIndex++;
             } else if (mode == "replace") {
-                currentNode.data = translatedData[traverseIndex.toString()];
+                currentNode.data = translatedData[traverseIndex][traverseIndex];
                 console.log('new:' + currentNode.data)
                 traverseIndex++;
             }  
