@@ -19,7 +19,7 @@ function amtLogin() {
     })
 }
 
-function amtTranslate(source, contentType, traverseIndex = undefined) {
+function amtTranslate(source, contentType) {
     var amtToken;
 
     if (Cookies.get('amtToken') !== undefined) {
