@@ -41,6 +41,7 @@ function amtTranslate(source, contentType, callback = undefined, callbackObj = u
         if (contentType === "subject") {
             $("#subject").html("<b>" + data + "</b>");
         } else if (contentType == "body") {
+            console.log(callbackObj);
             callback.apply(callbackObj, [data.replace(/(\r\n|\n|\r)/gm, "<br>")]);
         }
     }).fail(function(error) {
