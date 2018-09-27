@@ -28,13 +28,12 @@ function traverse(node) {
         if (currentNode.data !== undefined) {
             var oldData = $.trim(currentNode.data).replace(/(\r\n|\n|\r)/gm, "\\n");
             var callback = function (data) {
-                console.log(data)
                 currentNode.data = data;
             };
             
-            console.log(oldData);
+            console.log('old:' + oldData);
             amtTranslate(oldData, "body", callback, currentNode);
-            console.log(currentNode.data);
+            console.log('new' + currentNode.data);
             
         }
         
