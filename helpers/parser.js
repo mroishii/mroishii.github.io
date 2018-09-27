@@ -27,7 +27,7 @@ function traverse(node) {
         if (node[i].data !== undefined) {
             var oldData = $.trim(node[i].data).replace(/(\r\n|\n|\r)/gm, "\\n");
             var callback = function (data) {
-                this.node[i].data = data;
+                console.log(node[i].data);
             };
             console.log(oldData);
             amtTranslate(oldData, "body", callback);
