@@ -40,10 +40,10 @@ function amtTranslate(source, contentType, traverseIndex = undefined) {
             $("#subject").html("<b>" + data + "</b>");
         } else if (contentType == "body") {
             //callback.apply(callbackObj, [data.replace(/(\r\n|\n|\r)/gm, "<br>")]);
-            var pushData = {};
-            pushData[traverseIndex] = data.replace(/(\r\n|\n|\r)/gm, "<br>");
-            console.log(pushData);
-            translatedData.push(pushData);
+            // var pushData = {};
+            // pushData[traverseIndex] = data.replace(/(\r\n|\n|\r)/gm, "<br>");
+            console.log(data);
+            translatedData = data.replace(/(\r\n|\n|\r)/gm, "<br>").split("\u0001");
         }
     }).fail(function(error) {
         console.log("Translate failed. Reason: " + error.responseText);
