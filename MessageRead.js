@@ -120,7 +120,7 @@
             var parsedMailBody = parseHTML(item.body.content);
             //Traverse the parsed mail body
             traverse(parsedMailBody);
-            console.log(translatedData);
+            console.log(JSON.stringify(translatedData));
             //Convert translated mail body back to html and display to div 
             var mailBodyHtml = html(parsedMailBody);
             $('#translated').html(mailBodyHtml);

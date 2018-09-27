@@ -1,6 +1,6 @@
 var loginUrl = 'https://amtapi.akaminds.co.jp/login';
 var translateUrl = "https://amtapi.akaminds.co.jp/api/translate/sentence";
-var translatedData = new Array();
+var translatedData = [];
 
 function amtLogin() {
     var user = 'trongtv_api';
@@ -19,7 +19,7 @@ function amtLogin() {
     })
 }
 
-function amtTranslate(source, contentType, callback = undefined, callbackObj = undefined) {
+function amtTranslate(source, contentType, traverseIndex = undefined) {
     var amtToken;
 
     if (Cookies.get('amtToken') !== undefined) {
@@ -40,7 +40,9 @@ function amtTranslate(source, contentType, callback = undefined, callbackObj = u
             $("#subject").html("<b>" + data + "</b>");
         } else if (contentType == "body") {
             //callback.apply(callbackObj, [data.replace(/(\r\n|\n|\r)/gm, "<br>")]);
-            translatedData.push(data.replace(/(\r\n|\n|\r)/gm, "<br>"));
+            var pushData = {};
+            pushData[traverseIndex] = data.replace(/(\r\n|\n|\r)/gm, "<br>")
+            translatedData.push(pushData);
         }
     }).fail(function(error) {
         console.log("Translate failed. Reason: " + error.responseText);

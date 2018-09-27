@@ -20,20 +20,16 @@ function parseHTML(html) {
 }
 
 //Loop through entire json object, do the action stuff
-function traverse(node) {
+var traverseIndex = 0;
+function traverse(node, mode) {
     //Loop through every node inside parent
     for (var i = 0; i < node.length; i++) {
         //Any node with text data will be translate
         var currentNode = node[i];
         if (currentNode.data !== undefined) {
             var oldData = $.trim(currentNode.data).replace(/(\r\n|\n|\r)/gm, "\\n");
-            var callback = function (data) {
-                this.currentNode.data = data;
-            };
-            
-            console.log('old:' + oldData);
-            amtTranslate(oldData, "body", callback, currentNode);
-            console.log('new' + currentNode.data);
+            amtTranslate(oldData, "body", traverseIndex);
+            traverseIndex++;
             
         }
         
