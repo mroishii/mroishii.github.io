@@ -19,7 +19,7 @@ function amtLogin() {
     })
 }
 
-var delimitter = "{{}}";
+var delimitter = "█";
 function amtTranslate(source, contentType) {
     var amtToken;
 
