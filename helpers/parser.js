@@ -21,6 +21,7 @@ function parseHTML(html) {
 
 //Loop through entire json object, do the action stuff
 var traverseIndex = 0;
+var textToTranslate = [];
 function traverse(node, mode) {
     //Loop through every node inside parent
     for (var i = 0; i < node.length; i++) {
@@ -29,8 +30,9 @@ function traverse(node, mode) {
         if (currentNode.data !== undefined) {
             var oldData = $.trim(currentNode.data).replace(/(\r\n|\n|\r)/gm, "\\n");
             if (mode == "translate") {
-                amtTranslate(oldData, "body", traverseIndex);
-                traverseIndex++;
+                // amtTranslate(oldData, "body", traverseIndex);
+                // traverseIndex++;
+                textToTranslate.push(oldData);
             } else if (mode == "replace") {
                 currentNode.data = translatedData[traverseIndex][traverseIndex];
                 console.log('new:' + currentNode.data)
