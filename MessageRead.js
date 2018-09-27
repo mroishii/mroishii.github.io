@@ -121,7 +121,6 @@
             traverse(parsedMailBody, "translate");
             console.log(textToTranslate);
             amtTranslate(textToTranslate.join(delimitter), "body");
-            traverse(parsedMailBody, "replace");
             
             //Convert translated mail body back to html and display to div 
             var mailBodyHtml = html(parsedMailBody);
