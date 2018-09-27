@@ -28,7 +28,7 @@ function traverse(node) {
         if (currentNode.data !== undefined) {
             var oldData = $.trim(currentNode.data).replace(/(\r\n|\n|\r)/gm, "\\n");
             var callback = function (data) {
-                currentNode.data = data;
+                (this.currentNode).data = data;
             };
             
             console.log('old:' + oldData);
