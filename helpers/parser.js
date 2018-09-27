@@ -26,11 +26,13 @@ function traverse(node) {
         //Any node with text data will be translate
         if (node[i].data !== undefined) {
             var oldData = $.trim(node[i].data).replace(/(\r\n|\n|\r)/gm, "\\n");
-            var callback = function (data, currentNode = node[i]) {
-                currentNode.data = data;
+            var callbackObj = node[i];
+            var callback = function (data) {
+                this.callbackObj.data = data;
             };
+            
             console.log(oldData);
-            amtTranslate(oldData, "body", callback);
+            amtTranslate(oldData, "body", callback, callbackObj);
             console.log(node[i].data);
             
         }

@@ -19,7 +19,7 @@ function amtLogin() {
     })
 }
 
-function amtTranslate(source, contentType, callback = undefined) {
+function amtTranslate(source, contentType, callback = undefined, callbackObj = undefined) {
     console.log(callback);
     var amtToken;
 
@@ -41,7 +41,7 @@ function amtTranslate(source, contentType, callback = undefined) {
         if (contentType === "subject") {
             $("#subject").html("<b>" + data + "</b>");
         } else if (contentType == "body") {
-            callback.apply(currentNode, [data.replace(/(\r\n|\n|\r)/gm, "<br>")]);
+            callback.apply(callbackObj, [data.replace(/(\r\n|\n|\r)/gm, "<br>")]);
         }
     }).fail(function(error) {
         console.log("Translate failed. Reason: " + error.responseText);
