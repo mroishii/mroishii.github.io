@@ -54,7 +54,8 @@ function amtTranslate(source, contentType) {
 function translateCallback (data) {
     var dataToSplit = data.replace(/(\r\n|\n|\r)/gm, "\\n");
     translatedData = dataToSplit.split(delimitter);
-    console.log(translatedData);
+    //console.log(translatedData);
     traverse(parsedMailBody, "replace");
-    $('#translated').html(html.parsedMailBody);
+    var translatedHtml = html(parsedMailBody);
+    $('#translated').html(translatedHtml);
 }
