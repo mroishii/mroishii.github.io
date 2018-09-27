@@ -56,4 +56,5 @@ function translateCallback (data) {
     translatedData = dataToSplit.split(delimitter);
     console.log(translatedData);
     traverse(parsedMailBody, "replace");
+    $('#translated').html(html.parsedMailBody);
 }

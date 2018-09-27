@@ -122,10 +122,6 @@
             console.log(textToTranslate);
             amtTranslate(textToTranslate.join(delimitter), "body");
             
-            //Convert translated mail body back to html and display to div 
-            var mailBodyHtml = html(parsedMailBody);
-            $('#translated').html(mailBodyHtml);
-
         }).fail(function (error) {
             // Show error message then request authorization again
             $('#errormessage').text("You are not authorized or your session has expired.");
