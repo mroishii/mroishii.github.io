@@ -22,7 +22,7 @@ function parseHTML(html) {
 //Loop through entire json object, do the action stuff
 var traverseIndex = 0;
 var textToTranslate = [];
-function traverse(node, mode) {
+function traverse(node, mode, translatedData = undefined) {
     //Loop through every node inside parent
     for (var i = 0; i < node.length; i++) {
         //Any node with text data will be translate
