@@ -115,18 +115,13 @@
             //Translate and show Subject
             amtTranslate(item.subject, "subject");
             
-            console.log(item.body.content);
             //Parse the mail body
             var parsedMailBody = parseHTML(item.body.content);
             //Traverse the parsed mail body
             traverse(parsedMailBody, "translate");
             console.log(textToTranslate);
-            console.log(textToTranslate.join(delimitter));
             amtTranslate(textToTranslate.join(delimitter), "body");
-            traverse(parsedMailBody, "replace", translatedData);
-            //traverseIndex = 0;
-            //traverse(parsedMailBody, "replace");
-            //traverseIndex = 0;
+            traverse(parsedMailBody, "replace");
             
             //Convert translated mail body back to html and display to div 
             var mailBodyHtml = html(parsedMailBody);

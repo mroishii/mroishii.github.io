@@ -22,19 +22,18 @@ function parseHTML(html) {
 //Loop through entire json object, do the action stuff
 var traverseIndex = 0;
 var textToTranslate = [];
-function traverse(node, mode, translatedData = undefined) {
+var translatedData = [];
+function traverse(node, mode) {
     //Loop through every node inside parent
     for (var i = 0; i < node.length; i++) {
         //Any node with text data will be translate
         if (node[i].data !== undefined) {
             var oldData = $.trim(node[i].data).replace(/(\r\n|\n|\r)/gm, "\\n");
             if (mode == "translate") {
-                // amtTranslate(oldData, "body", traverseIndex);
-                // traverseIndex++;
                 textToTranslate.push(oldData);
             } else if (mode == "replace") {
                 console.log(translatedData);
-                node[i].data = translatedData[traverseIndex.toString()] + "<br>";
+                node[i].data = translatedData[traverseIndex] + "<br>";
                 console.log('new:' + node[i].data);
                 traverseIndex++;
             }  
