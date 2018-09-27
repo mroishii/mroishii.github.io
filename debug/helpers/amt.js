@@ -1,6 +1,5 @@
 var loginUrl = 'https://amtapi.akaminds.co.jp/login';
 var translateUrl = "https://amtapi.akaminds.co.jp/api/translate/sentence";
-var translatedData = new Array();
 
 function amtLogin() {
     var user = 'trongtv_api';
@@ -19,7 +18,7 @@ function amtLogin() {
     })
 }
 
-function amtTranslate(source, contentType, callback = undefined, callbackObj = undefined) {
+function amtTranslate(source, contentType) {
     var amtToken;
 
     if (Cookies.get('amtToken') !== undefined) {
@@ -28,20 +27,49 @@ function amtTranslate(source, contentType, callback = undefined, callbackObj = u
         amtLogin();
     }
     
-    $.ajax({
-        url: translateUrl,
-        type: 'post',
-        headers: {'content-type': 'application/json',
-                  'authorization': 'Bearer ' + amtToken,
-                  'token-type': 'AMT'},
-        data: '{"jpn":"'+ source +'"}',
-    }).done(function(data) {
-        if (contentType === "subject") {
-            $("#subject").html("<b>" + data + "</b>");
-        } else if (contentType == "body") {
-            callback.apply(callbackObj, [data.replace(/(\r\n|\n|\r)/gm, "<br>")]);
+    var trav = function (node) {
+        for (var i = 0; i < node.length; i++) {
+            //Any node with text data will be translate
+            var currentNode = node[i];
+            if (currentNode.data !== undefined) {
+                var oldData = $.trim(currentNode.data).replace(/(\r\n|\n|\r)/gm, "\\n");
+                console.log('old:' + oldData);
+                $.ajax({
+                    url: translateUrl,
+                    type: 'post',
+                    headers: {'content-type': 'application/json',
+                              'authorization': 'Bearer ' + amtToken,
+                              'token-type': 'AMT'},
+                    data: '{"jpn":"'+ source +'"}',
+                }).done(function(data) {
+                    currentNode.data = data;
+                }).fail(function(error) {
+                    console.log("Translate failed. Reason: " + error.responseText);
+                })
+                console.log('new' + currentNode.data);  
+            }
+            
+            //If node have children, traverse it too
+            if (currentNode.children !== undefined) {
+                traverse(currentNode.children);
+            }
         }
-    }).fail(function(error) {
-        console.log("Translate failed. Reason: " + error.responseText);
-    })
+    }
+
+    if (contentType === "subject") {
+        $.ajax({
+            url: translateUrl,
+            type: 'post',
+            headers: {'content-type': 'application/json',
+                      'authorization': 'Bearer ' + amtToken,
+                      'token-type': 'AMT'},
+            data: '{"jpn":"'+ source +'"}',
+        }).done(function(data) {
+            $("#subject").html("<b>" + data + "</b>");
+        }).fail(function(error) {
+            console.log("Translate failed. Reason: " + error.responseText);
+        })
+    } else if (contentType === "body") {
+        trav(source);
+    }
 }
