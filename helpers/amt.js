@@ -52,7 +52,7 @@ function amtTranslate(source, contentType) {
 }
 
 function translateCallback (data) {
-    var dataToSplit = data.replace(/(\r\n|\n|\r)/gm, "<br>");
-    translatedData = dataToSplit.split("<br>");
+    var dataToSplit = data.replace(/(\r\n|\n|\r)/gm, "\\n");
+    translatedData = dataToSplit.split(delimitter);
     console.log(translatedData);
 }
