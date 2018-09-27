@@ -119,8 +119,8 @@
             //Parse the mail body
             var parsedMailBody = parseHTML(item.body.content);
             //Traverse the parsed mail body
-            await traverse(parsedMailBody, "translate");
-            console.log(JSON.stringify(translatedData));
+            traverse(parsedMailBody, "translate").then(console.log(JSON.stringify(translatedData)));
+            
             //traverseIndex = 0;
             //traverse(parsedMailBody, "replace");
             //traverseIndex = 0;
