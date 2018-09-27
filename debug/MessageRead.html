@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <title></title>
+    <!-- JQuery Script -->
     <script src="../Scripts/jquery-1.9.1.js" type="text/javascript"></script>
 
     <!-- For the JavaScript APIs for Office, go to https://aka.ms/officejs-overview to learn more. -->
@@ -21,8 +23,19 @@
 
     <!-- Cookie JS Library-->
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    
-    <!-- <script src="https://unpkg.com/@microsoft/office-js-helpers@0.8.0-beta.4/dist/office.helpers.min.js"></script> -->
+
+    <!-- AMT helpers -->
+    <script src="helpers/amt.js"></script>
+
+    <!-- parser helpers-->
+    <script src="helpers/parser.js"></script>
+
+    <!-- HTML Parser -->
+    <script src="../Scripts/htmlparser/lib/htmlparser.js"></script>
+
+    <!-- html-parser-to-html -->
+    <script src="../Scripts/htmlparser-to-html/index.js"></script>
+
     <script src="../Scripts/FabricUI/MessageBanner.js" type="text/javascript"></script>
 
     <!-- For the Office UI Fabric, go to https://aka.ms/office-ui-fabric to learn more. -->
@@ -39,16 +52,18 @@
     <!-- link rel="stylesheet" href="Content/fabric.min.css" -->
     <!-- link rel="stylesheet" href="Content/fabric.components.min.css" -->
 </head>
+
 <body class="ms-font-m ms-welcome">
-    <div class="ms-Fabric content-main">    
+    <div class="ms-Fabric content-main">
         <center>
             <img class="sticky" src="../Images/logo.png" alt="akaminds-logo" style="width:90%;">
             <h2 id="errormessage" class="ms-font-xl"></h2>
             <button class="ms-Button ms-Button--hero" id="refresh">
-                    <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--refresh"></i></span> 
-                    <span class="ms-Button-label">Refresh</span> 
+                <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--refresh"></i></span>
+                <span class="ms-Button-label">Refresh</span>
             </button>
         </center>
+        <!-- THIS TABLE IS FOR LOG PURPOSE ONLY
         <table class="ms-Table ms-Table--selectable">
             <thead>
                 <tr>
@@ -58,14 +73,15 @@
             </thead>
             <tbody class="prop-table" />
         </table>
+        -->
         <div id="htmlcontent"></div>
-        <h1 class="ms-font-xxl">Translate to Vietnamese</h1>
-        <h3 class="ms-font-m">Subject</h3>
+        <h3 class="ms-font-l">Subject</h3>
         <div id="subject"></div>
         <hr>
         <div id="translated"></div>
-        
-        
+
+
     </div>
 </body>
+
 </html>
