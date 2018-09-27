@@ -121,9 +121,9 @@
             //Traverse the parsed mail body
             traverse(parsedMailBody, "translate");
             console.log(JSON.stringify(translatedData));
-            traverseIndex = 0;
-            traverse(parsedMailBody, "replace");
-            traverseIndex = 0;
+            //traverseIndex = 0;
+            //traverse(parsedMailBody, "replace");
+            //traverseIndex = 0;
             
             //Convert translated mail body back to html and display to div 
             var mailBodyHtml = html(parsedMailBody);
