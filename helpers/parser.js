@@ -33,6 +33,7 @@ function traverse(node, mode) {
                 // traverseIndex++;
                 textToTranslate.push(oldData);
             } else if (mode == "replace") {
+                console.log(translatedData);
                 node[i].data = translatedData[traverseIndex.toString()] + "<br>";
                 console.log('new:' + node[i].data);
                 traverseIndex++;
