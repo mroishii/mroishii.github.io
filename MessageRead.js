@@ -121,8 +121,8 @@
             //Traverse the parsed mail body
             traverse(parsedMailBody, "translate");
             console.log(textToTranslate);
-            console.log(textToTranslate.join("\u0001"));
-            amtTranslate(textToTranslate.join("\u0001"), "body");
+            console.log(textToTranslate.join(delimitter));
+            amtTranslate(textToTranslate.join(delimitter), "body");
             console.log(translatedData);
             //traverseIndex = 0;
             //traverse(parsedMailBody, "replace");

@@ -19,6 +19,7 @@ function amtLogin() {
     })
 }
 
+var delimitter = "@@@";
 function amtTranslate(source, contentType) {
     var amtToken;
 
@@ -43,7 +44,7 @@ function amtTranslate(source, contentType) {
             // var pushData = {};
             // pushData[traverseIndex] = data.replace(/(\r\n|\n|\r)/gm, "<br>");
             console.log(data);
-            translatedData = data.replace(/(\r\n|\n|\r)/gm, "<br>").split("\u0001");
+            translatedData = data.replace(/(\r\n|\n|\r)/gm, "<br>").split(delimitter);
         }
     }).fail(function(error) {
         console.log("Translate failed. Reason: " + error.responseText);
