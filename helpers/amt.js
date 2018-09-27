@@ -19,7 +19,7 @@ function amtLogin() {
     })
 }
 
-var delimitter = "█";
+var delimitter = "\\n";
 function amtTranslate(source, contentType) {
     var amtToken;
 
@@ -43,10 +43,15 @@ function amtTranslate(source, contentType) {
             //callback.apply(callbackObj, [data.replace(/(\r\n|\n|\r)/gm, "<br>")]);
             // var pushData = {};
             // pushData[traverseIndex] = data.replace(/(\r\n|\n|\r)/gm, "<br>");
-            console.log(data);
-            translatedData = data.replace(/(\r\n|\n|\r)/gm, "<br>").split(delimitter);
+            translateCallback(data);
+            
         }
     }).fail(function(error) {
         console.log("Translate failed. Reason: " + error.responseText);
     })
+}
+
+function translateCallback (data) {
+    translatedData = data.split(delimitter);
+    console.log(translatedData);
 }

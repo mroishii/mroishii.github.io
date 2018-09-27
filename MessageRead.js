@@ -123,7 +123,7 @@
             console.log(textToTranslate);
             console.log(textToTranslate.join(delimitter));
             amtTranslate(textToTranslate.join(delimitter), "body");
-            console.log(translatedData);
+            
             //traverseIndex = 0;
             //traverse(parsedMailBody, "replace");
             //traverseIndex = 0;
