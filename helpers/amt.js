@@ -38,7 +38,7 @@ function amtTranslate(source, contentType, node = undefined) {
     }).done(function(data) {
         if (contentType === "subject") {
             $("#subject").html("<b>" + data + "</b>");
-        } else if (contentType === "body") {
+        } else if (contentType == "body") {
             if (node !== undefined) {
                 node.data = data.replace(/(\r\n|\n|\r)/gm, "<br>");
             }
