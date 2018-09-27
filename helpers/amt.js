@@ -41,7 +41,7 @@ function amtTranslate(source, contentType, traverseIndex = undefined) {
         } else if (contentType == "body") {
             //callback.apply(callbackObj, [data.replace(/(\r\n|\n|\r)/gm, "<br>")]);
             var pushData = {};
-            pushData[traverseIndex] = data.replace(/(\r\n|\n|\r)/gm, "<br>")
+            pushData[traverseIndex.toString()] = data.replace(/(\r\n|\n|\r)/gm, "<br>")
             translatedData.push(pushData);
         }
     }).fail(function(error) {
