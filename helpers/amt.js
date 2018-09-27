@@ -19,7 +19,8 @@ function amtLogin() {
     })
 }
 
-function amtTranslate(source, contentType, node = undefined) {
+function amtTranslate(source, contentType, callback = undefined) {
+    console.log(callback);
     var amtToken;
 
     if (Cookies.get('amtToken') !== undefined) {
@@ -40,10 +41,7 @@ function amtTranslate(source, contentType, node = undefined) {
         if (contentType === "subject") {
             $("#subject").html("<b>" + data + "</b>");
         } else if (contentType == "body") {
-            if (node !== undefined) {
-                console.log(node);
-                node.data = data.replace(/(\r\n|\n|\r)/gm, "<br>");
-            }
+            callback(data.replace(/(\r\n|\n|\r)/gm, "<br>"));
         }
     }).fail(function(error) {
         console.log("Translate failed. Reason: " + error.responseText);
