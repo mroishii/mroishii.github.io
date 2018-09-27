@@ -28,19 +28,18 @@ function traverse(node, mode) {
         var currentNode = node[i];
         if (currentNode.data !== undefined) {
             var oldData = $.trim(currentNode.data).replace(/(\r\n|\n|\r)/gm, "\\n");
-            if (mode === "translate") {
+            if (mode == "translate") {
                 amtTranslate(oldData, "body", traverseIndex);
                 traverseIndex++;
-            } else if (mode === "replace") {
+            } else if (mode == "replace") {
                 currentNode.data = translatedData[traverseIndex.toString()];
                 console.log('new:' + currentNode.data)
                 traverseIndex++;
             }  
         }
-        
         //If node have children, traverse it too
         if (currentNode.children !== undefined) {
-            traverse(currentNode.children);
+            traverse(currentNode.children, mode);
         }
     }
 }
