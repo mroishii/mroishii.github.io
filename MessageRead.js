@@ -116,7 +116,7 @@
             amtTranslate(item.subject, "subject");
             
             //Parse the mail body
-            var parsedMailBody = parseHTML(item.body.content);
+            parsedMailBody = parseHTML(item.body.content);
             //Traverse the parsed mail body
             traverse(parsedMailBody, "translate");
             console.log(textToTranslate);

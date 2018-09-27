@@ -1,3 +1,4 @@
+var parsedMailBody;
 function parseHTML(html) {
 
     //Get html-parser handler's instance
@@ -22,7 +23,7 @@ function parseHTML(html) {
 //Loop through entire json object, do the action stuff
 var traverseIndex = 0;
 var textToTranslate = [];
-var translatedData = [];
+
 function traverse(node, mode) {
     //Loop through every node inside parent
     for (var i = 0; i < node.length; i++) {
