@@ -29,6 +29,7 @@ function traverse(node, action = undefined) {
             var oldData = $.trim(node[i].data).replace(/(\r\n|\n|\r)/gm, "\\n");
             if (action !== undefined) {
                 var newData = action(oldData, "body", node[i]);
+                
                 console.log('New data:' + $.trim(node[i].data));
             }
         }

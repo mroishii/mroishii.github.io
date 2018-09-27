@@ -113,7 +113,7 @@
             
             //-----------TRANSLATE WITH AKAMINDS------------------------------------------------
             //Translate and show Subject
-            $('#subject').html("<b>" + amtTranslate(item.subject, "subject") + "</b>");
+            amtTranslate(item.subject, "subject");;
             
             console.log(item.body.content);
             //Parse the mail body
