@@ -40,7 +40,7 @@
         //Parameters for authenticator
         var client_id = '40f52d05-f5d8-4b29-9356-4248678802ba'; //Replace with another valid application id after register app with microsoft portal
         var configs = {
-            redirectUrl: 'https://mroishii.github.io/MessageRead.html',
+            redirectUrl: 'https://mroishii.github.io/amt-office/MessageRead.html',
             scope: 'https://graph.microsoft.com/mail.readwrite'
         };
 
