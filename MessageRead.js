@@ -4,6 +4,9 @@
 
     // The initialize function must be run each time a new page is loaded
     Office.initialize = function (reason) {
+        // THE CODE INSIDE THIS BLOCK WILL BE EXECUTED FIRST AT ALL TIME!!
+        // THINK OF IT AS main FUNCTION IN C OR JAVA
+
         var token;
         $(document).ready(function () {
             //This to inform the Authenticator to automatically close the authentication dialog once the authentication is complete.
@@ -21,12 +24,12 @@
             } else {
                 //Get token
                 token = Cookies.get("access_token");
-                // // FOR LOG PURPOSE
-                //logIt("token", token);
-                //Load Item Properties
+                //Do the MAGIC!!!
                 loadItemProps(token);
             }
         });
+
+        // END OF MAIN BLOCK CODE
     };
 
     //Pop-up the Authorization Window and do Authorization stuff
@@ -71,15 +74,11 @@
                 Office.MailboxEnums.RestVersion.v2_0
             );
         }
-        //logIt("Item ID", itemId);
         return itemId;
     }
 
     //Load and Show Mail Item Properties
     function loadItemProps(accessToken) {
-        // Get the table body element. For log purpose only
-        //var tbody = $('.prop-table');
-
         // Get the item's REST ID
         var itemId = getItemRestId();
 
@@ -100,15 +99,11 @@
             headers: { 'Authorization': 'Bearer ' + accessToken }
         }).done(function (item) {
             // Message is passed in `item`
-
-            //----------FOR LOG PURPOSE ONLY--------------------------------------
-            //tbody.append(makeTableRow("Subject", item.subject));
-            //tbody.append(makeTableRow("ContentType", item.body.contentType));
             
             //-----------TRANSLATE WITH GOOGLE TRANSLATION--------------------------------------
-            //Translate and show Subject
+            // // Translate and show Subject
             //translate(item.subject, "subject");
-            //Translate and show Mail body
+            // // Translate and show Mail body
             //translate(item.body.content, "body");
             
             //-----------TRANSLATE WITH AKAMINDS------------------------------------------------
@@ -117,9 +112,10 @@
             
             //Parse the mail body
             parsedMailBody = parseHTML(item.body.content);
-            //Traverse the parsed mail body
+            //Traverse the parsed mail body and get text to translate
             traverse(parsedMailBody, "translate");
             console.log(textToTranslate);
+            // Join all textToTranslate into 1 String with \n delimitter and send to amt api
             amtTranslate(textToTranslate.join(delimitter), "body");
             
         }).fail(function (error) {
@@ -153,33 +149,5 @@
     //         }
     //     });
     // }
-    // //THIS SECTION IS FOR LOG PURPOSE ONLY
-    // function makeTableRow(name, value) {
-    //     return $("<tr><td><strong>" + name +
-    //         "</strong></td><td class=\"prop-val\"><code>" +
-    //         value + "</code></td></tr>");
-    // }
-
-    // function logIt(name, value) {
-    //     // Get the table body element
-    //     var tbody = $('.prop-table');
-    //     tbody.append(makeTableRow(name, value));
-    // }
-
-
-    // // THIS WILL NOT WORKED
-    // function getEWSToken() {
-    //     Office.context.mailbox.getCallbackTokenAsync({isRest: true}, function (result) {
-    //         if (result.status === "succeeded") {
-    //             logIt("Token", result.value);
-    //             return result.value;
-    //         } else {
-    //             logIt(result.error.name, result.error.message);
-    //             return null;
-    //         }
-    //     });
-    // }
-
-
-
+    
 })();

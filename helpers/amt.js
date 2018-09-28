@@ -1,6 +1,7 @@
 var loginUrl = 'https://amtapi.akaminds.co.jp/login';
 var translateUrl = "https://amtapi.akaminds.co.jp/api/translate/sentence";
-var translatedData = [];
+var translatedData = [];    // Contains translated text data
+var delimitter = "\\n";     // Use to split and join array
 
 function amtLogin() {
     var user = 'trongtv_api';
@@ -19,7 +20,6 @@ function amtLogin() {
     })
 }
 
-var delimitter = "\\n";
 function amtTranslate(source, contentType) {
     var amtToken;
 
@@ -27,6 +27,7 @@ function amtTranslate(source, contentType) {
         amtToken = Cookies.get('amtToken');
     } else {
         amtLogin();
+        amtToken = Cookies.get('amtToken');
     }
     
     $.ajax({
@@ -38,13 +39,11 @@ function amtTranslate(source, contentType) {
         data: '{"jpn":"'+ source +'"}',
     }).done(function(data) {
         if (contentType == "subject") {
+            // If subject, display to #subject div
             $("#subject").html("<b>" + data + "</b>");
         } else if (contentType == "body") {
-            //callback.apply(callbackObj, [data.replace(/(\r\n|\n|\r)/gm, "<br>")]);
-            // var pushData = {};
-            // pushData[traverseIndex] = data.replace(/(\r\n|\n|\r)/gm, "<br>");
+            // If body, pass the translated string to callback function
             translateCallback(data);
-            
         }
     }).fail(function(error) {
         console.log("Translate failed. Reason: " + error.responseText);
@@ -52,10 +51,16 @@ function amtTranslate(source, contentType) {
 }
 
 function translateCallback (data) {
+    // Replace new line character with \n
     var dataToSplit = data.replace(/(\r\n|\n|\r)/gm, "\\n");
+    // Use \n delimitter to split string to translatedData array
     translatedData = dataToSplit.split(delimitter);
     //console.log(translatedData);
+    
+    //Traverse and replace text data in mail body with translated one
     traverse(parsedMailBody, "replace");
+
+    //Re-parse html data to html and set the html of #translated div
     var translatedHtml = html(parsedMailBody);
     $('#translated').html(translatedHtml);
 }
