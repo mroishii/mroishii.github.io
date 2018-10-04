@@ -22,6 +22,8 @@ function amtLogin() {
 
 function amtTranslate(source, contentType) {
     var amtToken;
+    
+    console.log("Source data:" + source)
 
     if (Cookies.get('amtToken') !== undefined) {
         amtToken = Cookies.get('amtToken');
@@ -63,7 +65,7 @@ function translateCallback (data) {
     //console.log(translatedData);
     
     //Traverse and replace text data in mail body with translated one
-    traverse(parsedMailBody[0].children[1], "replace");
+    traverse(parsedMailBody, "replace");
 
     //Re-parse html data to html and set the html of #translated div
     var translatedHtml = html(parsedMailBody);
