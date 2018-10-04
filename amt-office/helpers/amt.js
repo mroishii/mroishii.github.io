@@ -42,8 +42,13 @@ function amtTranslate(source, contentType) {
             // If subject, display to #subject div
             $("#subject").html("<b>" + data + "</b>");
         } else if (contentType == "body") {
-            // If body, pass the translated string to callback function
+            // If body in html-formated, pass the translated string to callback function
             translateCallback(data);
+        } else if (contentType == "body_text") {
+            // If body in text-only format, put directly to #translated div
+            $("#translated").html(data.replace(/(\r\n|\n|\r)/gm, "<br>"));
+        } else {
+            console.log("Error: undefined contentType");
         }
     }).fail(function(error) {
         console.log("Translate failed. Reason: " + error.responseText);
