@@ -99,25 +99,34 @@
             headers: { 'Authorization': 'Bearer ' + accessToken }
         }).done(function (item) {
             // Message is passed in `item`
-            
+
             //-----------TRANSLATE WITH GOOGLE TRANSLATION--------------------------------------
             // // Translate and show Subject
             //translate(item.subject, "subject");
             // // Translate and show Mail body
             //translate(item.body.content, "body");
-            
+
             //-----------TRANSLATE WITH AKAMINDS------------------------------------------------
+            console.log(Object.keys(item));
             //Translate and show Subject
             amtTranslate(item.subject, "subject");
-            
+
             //Parse the mail body
             parsedMailBody = parseHTML(item.body.content);
-            //Traverse the parsed mail body and get text to translate
-            traverse(parsedMailBody, "translate");
-            console.log(textToTranslate);
-            // Join all textToTranslate into 1 String with \n delimitter and send to amt api
-            amtTranslate(textToTranslate.join(delimitter), "body");
-            
+
+            if (parsedMailBody[0].type == "text") {
+                console.log(item.body.content);
+            } else {
+                //Traverse the parsed mail body and get text to translate
+                traverse(parsedMailBody[0][1], "translate");
+                console.log(textToTranslate);
+                // Join all textToTranslate into 1 String with \n delimitter and send to amt api
+                amtTranslate(textToTranslate.join(delimitter), "body");
+
+            }
+
+
+
         }).fail(function (error) {
             // Show error message then request authorization again
             $('#errormessage').text("You are not authorized or your session has expired.");
@@ -149,5 +158,5 @@
     //         }
     //     });
     // }
-    
+
 })();
