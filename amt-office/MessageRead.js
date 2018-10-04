@@ -118,7 +118,7 @@
                 amtTranslate(item.body.content.replace(/(\r\n|\n|\r)/gm, "\\n"), "body_text");
             } else {
                 //Traverse the parsed mail body and get text to translate
-                traverse(parsedMailBody, "translate");
+                traverse(parsedMailBody[0].children[1], "translate");
                 console.log(textToTranslate);
                 // Join all textToTranslate into 1 String with \n delimitter and send to amt api
                 amtTranslate(textToTranslate.join(delimitter), "body");
