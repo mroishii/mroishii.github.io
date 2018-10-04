@@ -18,7 +18,7 @@ function parseHTML(html) {
     //Parse the html content
     parser.parseComplete(html);
 
-    //console.log(handler.dom);
+    console.log(handler.dom);
     return handler.dom;
 }
 //Loop through entire json object
